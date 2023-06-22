@@ -1,0 +1,26 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="cafe2-j2ee-master -with-web:war exploded">
+    <output-path>$PROJECT_DIR$/out/artifacts/cafe2_j2ee_master__with_web_war_exploded</output-path>
+    <root id="root">
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="cafe2-j2ee-master -with-web" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="lib" />
+          <element id="library" level="project" name="lib3" />
+          <element id="library" level="project" name="lib1" />
+        </element>
+      </element>
+      <element id="javaee-facet-resources" facet="cafe2-j2ee-master -with-web/web/Web7" />
+      <element id="javaee-facet-resources" facet="cafe2-j2ee-master -with-web/web/Web4" />
+      <element id="javaee-facet-resources" facet="cafe2-j2ee-master -with-web/web/Web" />
+      <element id="javaee-facet-resources" facet="cafe2-j2ee-master -with-web/web/Web5" />
+      <element id="javaee-facet-resources" facet="cafe2-j2ee-master -with-web/web/Web3" />
+      <element id="javaee-facet-resources" facet="cafe2-j2ee-master -with-web/web/Web9" />
+      <element id="javaee-facet-resources" facet="cafe2-j2ee-master -with-web/web/Web6" />
+      <element id="javaee-facet-resources" facet="cafe2-j2ee-master -with-web/web/Web2" />
+      <element id="javaee-facet-resources" facet="cafe2-j2ee-master -with-web/web/Web8" />
+    </root>
+  </artifact>
+</component>
