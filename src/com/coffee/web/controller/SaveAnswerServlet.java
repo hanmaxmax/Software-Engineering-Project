@@ -83,7 +83,7 @@ public class SaveAnswerServlet extends HttpServlet {
             throws ServletException, IOException {
         try {
             SaverService.save(formBean.getQuestion1(), formBean.getQuestion2(), formBean.getQuestion3(),
-                    formBean.getQuestion4(), formBean.getQuestion5(), 46);
+                    formBean.getQuestion4(), formBean.getQuestion5(), 47);
             System.out.println("Success save 5 radio answer");
             System.out.println(formBean.toString());
         } catch (SQLException e) {

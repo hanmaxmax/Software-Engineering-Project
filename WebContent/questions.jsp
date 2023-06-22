@@ -34,7 +34,7 @@
 
         <div class="col-lg-6 col-12 order-3 order-lg-0">
           <div class="custom-block-info mt-2 mt-lg-0">
-            <a href="event-detail.jsp" class="events-title mb-3">A casual day</a>
+            <a href="listening.jsp" class="events-title mb-3">A casual day</a>
 
             <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
 
@@ -55,7 +55,7 @@
               </div>
 
               <div class="d-flex align-items-center ms-lg-auto">
-                <a href="event-detail.jsp" class="btn custom-btn">开始练习</a>
+                <a href="listening.jsp" class="btn custom-btn">开始练习</a>
               </div>
             </div>
           </div>
@@ -74,7 +74,7 @@
 
         <div class="col-lg-6 col-12 order-3 order-lg-0">
           <div class="custom-block-info mt-2 mt-lg-0">
-            <a href="event-detail3.jsp" class="events-title mb-3">Group tournament activities</a>
+            <a href="event-detail2.jsp" class="events-title mb-3">Group tournament activities</a>
 
             <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
 
@@ -95,7 +95,7 @@
               </div>
 
               <div class="d-flex align-items-center ms-lg-auto">
-                <a href="event-detail3.jsp" class="btn custom-btn">开始练习</a>
+                <a href="event-detail2.jsp" class="btn custom-btn">开始练习</a>
 <%--                <a href="baidu2.html" class="btn custom-btn">开始练习</a>--%>
               </div>
             </div>

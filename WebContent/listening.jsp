@@ -266,10 +266,10 @@
 
 
 
-                            <form method="POST" action="${pageContext.request.contextPath}/servlet/saveAnswerServlet" name="form1" οnsubmit="return on_submit()">
+                            <form method="POST" action="${pageContext.request.contextPath}/servlet/SaveListeningAnswerServlet" name="form1" οnsubmit="return on_submit()">
 
                                 <p>
-                                    46.<label>
+                                    1.<label>
                                     <input type="radio" name="RadioGroup1" value="1" id="RadioGroup1_0">
                                     A</label>
                                     <label>
@@ -284,7 +284,7 @@
                                 </p>
 
                                 <p>
-                                    47.<label>
+                                    2.<label>
                                     <input type="radio" name="RadioGroup2" value="1" id="RadioGroup2_0">
                                     A</label>
                                     <label>
@@ -299,7 +299,7 @@
                                 </p>
 
                                 <p>
-                                    48.<label>
+                                    3.<label>
                                     <input type="radio" name="RadioGroup3" value="1" id="RadioGroup3_0">
                                     A</label>
                                     <label>
@@ -314,7 +314,7 @@
                                 </p>
 
                                 <p>
-                                    49.<label>
+                                    4.<label>
                                     <input type="radio" name="RadioGroup4" value="1" id="RadioGroup4_0">
                                     A</label>
                                     <label>
@@ -329,7 +329,7 @@
                                 </p>
 
                                 <p>
-                                    50.<label>
+                                    5.<label>
                                     <input type="radio" name="RadioGroup5" value="1" id="RadioGroup5_0">
                                     A</label>
                                     <label>
@@ -342,6 +342,322 @@
                                         <input type="radio" name="RadioGroup5" value="4" id="RadioGroup5_3">
                                         D</label>
                                 </p>
+
+
+
+                                <p>
+                                    6.<label>
+                                    <input type="radio" name="RadioGroup6" value="1" id="RadioGroup6_0">
+                                    A</label>
+                                    <label>
+                                        <input type="radio" name="RadioGroup6" value="2" id="RadioGroup6_1">
+                                        B</label>
+                                    <label>
+                                        <input type="radio" name="RadioGroup6" value="3" id="RadioGroup6_2">
+                                        C</label>
+                                    <label>
+                                        <input type="radio" name="RadioGroup6" value="4" id="RadioGroup6_3">
+                                        D</label>
+                                </p>
+
+                                <p>
+                                    7.<label>
+                                    <input type="radio" name="RadioGroup7" value="1" id="RadioGroup7_0">
+                                    A</label>
+                                    <label>
+                                        <input type="radio" name="RadioGroup7" value="2" id="RadioGroup7_1">
+                                        B</label>
+                                    <label>
+                                        <input type="radio" name="RadioGroup7" value="3" id="RadioGroup7_2">
+                                        C</label>
+                                    <label>
+                                        <input type="radio" name="RadioGroup7" value="4" id="RadioGroup7_3">
+                                        D</label>
+                                </p>
+
+                                <p>
+                                    48.<label>
+                                    <input type="radio" name="RadioGroup8" value="1" id="RadioGroup8_0">
+                                    A</label>
+                                    <label>
+                                        <input type="radio" name="RadioGroup8" value="2" id="RadioGroup8_1">
+                                        B</label>
+                                    <label>
+                                        <input type="radio" name="RadioGroup8" value="3" id="RadioGroup8_2">
+                                        C</label>
+                                    <label>
+                                        <input type="radio" name="RadioGroup8" value="4" id="RadioGroup8_3">
+                                        D</label>
+                                </p>
+
+                                <p>
+                                    49.<label>
+                                    <input type="radio" name="RadioGroup9" value="1" id="RadioGroup9_0">
+                                    A</label>
+                                    <label>
+                                        <input type="radio" name="RadioGroup9" value="2" id="RadioGroup9_1">
+                                        B</label>
+                                    <label>
+                                        <input type="radio" name="RadioGroup9" value="3" id="RadioGroup9_2">
+                                        C</label>
+                                    <label>
+                                        <input type="radio" name="RadioGroup9" value="4" id="RadioGroup9_3">
+                                        D</label>
+                                </p>
+
+                                <p>
+                                    50.<label>
+                                    <input type="radio" name="RadioGroup10" value="1" id="RadioGroup10_0">
+                                    A</label>
+                                    <label>
+                                        <input type="radio" name="RadioGroup10" value="2" id="RadioGroup10_1">
+                                        B</label>
+                                    <label>
+                                        <input type="radio" name="RadioGroup10" value="3" id="RadioGroup10_2">
+                                        C</label>
+                                    <label>
+                                        <input type="radio" name="RadioGroup10" value="4" id="RadioGroup10_3">
+                                        D</label>
+                                </p>
+
+
+
+
+
+
+
+                                <p>
+                                    46.<label>
+                                    <input type="radio" name="RadioGroup11" value="1" id="RadioGroup11_0">
+                                    A</label>
+                                    <label>
+                                        <input type="radio" name="RadioGroup11" value="2" id="RadioGroup11_1">
+                                        B</label>
+                                    <label>
+                                        <input type="radio" name="RadioGroup11" value="3" id="RadioGroup11_2">
+                                        C</label>
+                                    <label>
+                                        <input type="radio" name="RadioGroup11" value="4" id="RadioGroup11_3">
+                                        D</label>
+                                </p>
+
+                                <p>
+                                    47.<label>
+                                    <input type="radio" name="RadioGroup12" value="1" id="RadioGroup12_0">
+                                    A</label>
+                                    <label>
+                                        <input type="radio" name="RadioGroup12" value="2" id="RadioGroup12_1">
+                                        B</label>
+                                    <label>
+                                        <input type="radio" name="RadioGroup12" value="3" id="RadioGroup12_2">
+                                        C</label>
+                                    <label>
+                                        <input type="radio" name="RadioGroup12" value="4" id="RadioGroup12_3">
+                                        D</label>
+                                </p>
+
+                                <p>
+                                    48.<label>
+                                    <input type="radio" name="RadioGroup13" value="1" id="RadioGroup13_0">
+                                    A</label>
+                                    <label>
+                                        <input type="radio" name="RadioGroup13" value="2" id="RadioGroup13_1">
+                                        B</label>
+                                    <label>
+                                        <input type="radio" name="RadioGroup13" value="3" id="RadioGroup13_2">
+                                        C</label>
+                                    <label>
+                                        <input type="radio" name="RadioGroup13" value="4" id="RadioGroup13_3">
+                                        D</label>
+                                </p>
+
+                                <p>
+                                    49.<label>
+                                    <input type="radio" name="RadioGroup14" value="1" id="RadioGroup14_0">
+                                    A</label>
+                                    <label>
+                                        <input type="radio" name="RadioGroup14" value="2" id="RadioGroup14_1">
+                                        B</label>
+                                    <label>
+                                        <input type="radio" name="RadioGroup14" value="3" id="RadioGroup14_2">
+                                        C</label>
+                                    <label>
+                                        <input type="radio" name="RadioGroup14" value="4" id="RadioGroup14_3">
+                                        D</label>
+                                </p>
+
+                                <p>
+                                    50.<label>
+                                    <input type="radio" name="RadioGroup15" value="1" id="RadioGroup15_0">
+                                    A</label>
+                                    <label>
+                                        <input type="radio" name="RadioGroup15" value="2" id="RadioGroup15_1">
+                                        B</label>
+                                    <label>
+                                        <input type="radio" name="RadioGroup15" value="3" id="RadioGroup15_2">
+                                        C</label>
+                                    <label>
+                                        <input type="radio" name="RadioGroup15" value="4" id="RadioGroup15_3">
+                                        D</label>
+                                </p>
+
+
+
+
+
+
+                                <p>
+                                    46.<label>
+                                    <input type="radio" name="RadioGroup16" value="1" id="RadioGroup16_0">
+                                    A</label>
+                                    <label>
+                                        <input type="radio" name="RadioGroup16" value="2" id="RadioGroup16_1">
+                                        B</label>
+                                    <label>
+                                        <input type="radio" name="RadioGroup16" value="3" id="RadioGroup16_2">
+                                        C</label>
+                                    <label>
+                                        <input type="radio" name="RadioGroup16" value="4" id="RadioGroup16_3">
+                                        D</label>
+                                </p>
+
+                                <p>
+                                    47.<label>
+                                    <input type="radio" name="RadioGroup17" value="1" id="RadioGroup17_0">
+                                    A</label>
+                                    <label>
+                                        <input type="radio" name="RadioGroup17" value="2" id="RadioGroup17_1">
+                                        B</label>
+                                    <label>
+                                        <input type="radio" name="RadioGroup17" value="3" id="RadioGroup17_2">
+                                        C</label>
+                                    <label>
+                                        <input type="radio" name="RadioGroup17" value="4" id="RadioGroup17_3">
+                                        D</label>
+                                </p>
+
+                                <p>
+                                    48.<label>
+                                    <input type="radio" name="RadioGroup18" value="1" id="RadioGroup18_0">
+                                    A</label>
+                                    <label>
+                                        <input type="radio" name="RadioGroup18" value="2" id="RadioGroup18_1">
+                                        B</label>
+                                    <label>
+                                        <input type="radio" name="RadioGroup18" value="3" id="RadioGroup18_2">
+                                        C</label>
+                                    <label>
+                                        <input type="radio" name="RadioGroup18" value="4" id="RadioGroup18_3">
+                                        D</label>
+                                </p>
+
+                                <p>
+                                    49.<label>
+                                    <input type="radio" name="RadioGroup19" value="1" id="RadioGroup19_0">
+                                    A</label>
+                                    <label>
+                                        <input type="radio" name="RadioGroup19" value="2" id="RadioGroup19_1">
+                                        B</label>
+                                    <label>
+                                        <input type="radio" name="RadioGroup19" value="3" id="RadioGroup19_2">
+                                        C</label>
+                                    <label>
+                                        <input type="radio" name="RadioGroup19" value="4" id="RadioGroup19_3">
+                                        D</label>
+                                </p>
+
+                                <p>
+                                    20.<label>
+                                    <input type="radio" name="RadioGroup20" value="1" id="RadioGroup20_0">
+                                    A</label>
+                                    <label>
+                                        <input type="radio" name="RadioGroup20" value="2" id="RadioGroup20_1">
+                                        B</label>
+                                    <label>
+                                        <input type="radio" name="RadioGroup20" value="3" id="RadioGroup20_2">
+                                        C</label>
+                                    <label>
+                                        <input type="radio" name="RadioGroup20" value="4" id="RadioGroup20_3">
+                                        D</label>
+                                </p>
+
+
+                                <p>
+                                    21.<label>
+                                    <input type="radio" name="RadioGroup21" value="1" id="RadioGroup21_0">
+                                    A</label>
+                                    <label>
+                                        <input type="radio" name="RadioGroup21" value="2" id="RadioGroup21_1">
+                                        B</label>
+                                    <label>
+                                        <input type="radio" name="RadioGroup21" value="3" id="RadioGroup21_2">
+                                        C</label>
+                                    <label>
+                                        <input type="radio" name="RadioGroup21" value="4" id="RadioGroup21_3">
+                                        D</label>
+                                </p >
+
+                                <p>
+                                    22.<label>
+                                    <input type="radio" name="RadioGroup22" value="1" id="RadioGroup22_0">
+                                    A</label>
+                                    <label>
+                                        <input type="radio" name="RadioGroup22" value="2" id="RadioGroup22_1">
+                                        B</label>
+                                    <label>
+                                        <input type="radio" name="RadioGroup22" value="3" id="RadioGroup22_2">
+                                        C</label>
+                                    <label>
+                                        <input type="radio" name="RadioGroup22" value="4" id="RadioGroup22_3">
+                                        D</label>
+                                </p >
+
+                                <p>
+                                    23.<label>
+                                    <input type="radio" name="RadioGroup23" value="1" id="RadioGroup23_0">
+                                    A</label>
+                                    <label>
+                                        <input type="radio" name="RadioGroup23" value="2" id="RadioGroup23_1">
+                                        B</label>
+                                    <label>
+                                        <input type="radio" name="RadioGroup23" value="3" id="RadioGroup23_2">
+                                        C</label>
+                                    <label>
+                                        <input type="radio" name="RadioGroup23" value="4" id="RadioGroup23_3">
+                                        D</label>
+                                </p >
+
+                                <p>
+                                    24.<label>
+                                    <input type="radio" name="RadioGroup24" value="1" id="RadioGroup24_0">
+                                    A</label>
+                                    <label>
+                                        <input type="radio" name="RadioGroup24" value="2" id="RadioGroup24_1">
+                                        B</label>
+                                    <label>
+                                        <input type="radio" name="RadioGroup24" value="3" id="RadioGroup24_2">
+                                        C</label>
+                                    <label>
+                                        <input type="radio" name="RadioGroup24" value="4" id="RadioGroup24_3">
+                                        D</label>
+                                </p >
+
+                                <p>
+                                    25.<label>
+                                    <input type="radio" name="RadioGroup25" value="1" id="RadioGroup25_0">
+                                    A</label>
+                                    <label>
+                                        <input type="radio" name="RadioGroup25" value="2" id="RadioGroup25_1">
+                                        B</label>
+                                    <label>
+                                        <input type="radio" name="RadioGroup25" value="3" id="RadioGroup25_2">
+                                        C</label>
+                                    <label>
+                                        <input type="radio" name="RadioGroup25" value="4" id="RadioGroup25_3">
+                                        D</label>
+                                </p >
+
+
                                 <input type="submit" value="submit" name="B1"><input type="reset" value="reset" name="B2"><br>
                             </form>
 

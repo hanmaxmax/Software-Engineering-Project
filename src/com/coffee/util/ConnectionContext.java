@@ -1,6 +1,7 @@
 package com.coffee.util;
 
 import java.sql.Connection;
+import java.sql.SQLException;
 
 /**
  * @ClassName: ConnectionContext
@@ -29,7 +30,6 @@ public class ConnectionContext {
 				}
 			}
 		}
-		System.out.println("uniqueInstance = " + uniqueInstance);
 		return uniqueInstance;
 	}
 
@@ -40,11 +40,6 @@ public class ConnectionContext {
 	 * @param connection
 	 */
 	public void bind(Connection connection) {
-//		throw new
-//		assert(true);
-//		Integer i = null;
-//		i.toString();
-		System.out.println("bind is called!!!!!!!!!!!!!!!!!!!");
 		connectionThreadLocal.set(connection);
 	}
 
@@ -54,7 +49,21 @@ public class ConnectionContext {
 	 * 
 	 * @return Connection
 	 */
+//	public Connection getConnection() {
+//		return connectionThreadLocal.get();
+//	}
+
+
 	public Connection getConnection() {
+		Connection connection = null;
+// 1、获取数据库连接对象Connection
+		try {
+			connection = JdbcUtils.getConnection();
+
+		} catch (SQLException e) {
+			System.out.println(e);
+		}
+		connectionThreadLocal.set(connection);
 		System.out.println("connectionThreadLocal.get() = " + connectionThreadLocal.get());
 		return connectionThreadLocal.get();
 	}
@@ -67,12 +76,3 @@ public class ConnectionContext {
 		connectionThreadLocal.remove();
 	}
 }
-
-//class AssertionExample {
-//	public static void main(String[] args) {
-//		int x = 10;
-//		assert x > 0 : "x必须大于0";
-//
-//		System.out.println("断言通过");
-//	}
-//}
