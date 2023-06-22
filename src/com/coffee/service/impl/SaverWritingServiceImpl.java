@@ -17,9 +17,9 @@ public class SaverWritingServiceImpl implements ISaverWritingService {
     private ISaverWritingDao saverDao = new SaverWrtingDaoImpl();
 
     @Override
-    public void save(String q, int startAnswerNum) throws SQLException
+    public void save(String q, int startAnswerNum, int userId, int paperId) throws SQLException
     {
-        saverDao.insert(q, startAnswerNum);
+        saverDao.insert(q, startAnswerNum, userId, paperId);
     }
 
     @Override

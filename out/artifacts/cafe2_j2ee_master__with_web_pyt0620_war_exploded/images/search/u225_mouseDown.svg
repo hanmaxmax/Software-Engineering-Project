@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<svg version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" width="13px" height="13px" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <filter x="-50.00%" y="-50.00%" width="200.00%" height="200.00%" filterUnits="objectBoundingBox" id="filter966">
+      <feColorMatrix type="matrix" values="0 0 0 0 1.4964285714285717  0 0 0 0 1.4964285714285717  0 0 0 0 1.4964285714285717  0 0 0 1 0  " in="SourceGraphic" />
+    </filter>
+  </defs>
+  <g transform="matrix(1 0 0 1 -4 -996 )">
+    <image preserveAspectRatio="none" style="overflow:visible" width="13" height="13" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAAKJJREFUOE9jYMAD0tLS1gPxfHxqcMoBNeoD8X8ojifZEKDGfCQD6skxAOR8mAv8STIAqJEfiN8jGcBPtAFQzeeRNJMWiECN9UiaQV6wJ9p2kEKghvtoBsDCAUaD5LEbisV2dM0wfj7cVUBN+6EYOdBwacSMFQLOxWUQIl2QaQAiDMg0AJGwyDDgPEq0kmHAeqzpApoC7YF0P5a0AIqh+djiHwCi7CUuH3qdzwAAAABJRU5ErkJggg==" x="4px" y="996px" filter="url(#filter966)" />
+  </g>
+</svg>

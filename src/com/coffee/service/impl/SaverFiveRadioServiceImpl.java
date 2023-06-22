@@ -16,20 +16,14 @@ public class SaverFiveRadioServiceImpl implements ISaverFiveRadioService{
     private ISaverFiveRadioDao saverDao = new SaverFiveRadioDaoImpl();
 
     @Override
-    public void save(int q1, int q2, int q3, int q4, int q5, int startAnswerNum) throws SQLException
+    public void save(int q1, int q2, int q3, int q4, int q5, int startAnswerNum, int userId, int paperId) throws SQLException
     {
-        saverDao.insert(q1, q2, q3, q4, q5, startAnswerNum);
+        saverDao.insert(q1, q2, q3, q4, q5, startAnswerNum, userId, paperId);
     }
 
     @Override
     public Page<User> get(int begin, int pageSize) throws SQLException {
-//        List<User> users = (ArrayList<User>) saverDao.find(begin, pageSize);
-//
-//        Page<User> userPage = new Page<>();
-//        userPage.setList(users);
-//        userPage.setTotalCount(saverDao.findALL().size());
 
-//        return userPage;
         return null;
     }
 

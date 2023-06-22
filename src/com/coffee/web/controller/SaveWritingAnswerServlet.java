@@ -2,10 +2,7 @@ package com.coffee.web.controller;
 
 import java.io.*;
 import java.sql.SQLException;
-
-//import javax.servlet.*;
-//import javax.servlet.annotation.WebServlet;
-//import javax.servlet.http.*;
+import javax.servlet.http.HttpSession;
 
 import com.coffee.domain.Admin;
 import com.coffee.domain.User;
@@ -36,7 +33,7 @@ public class SaveWritingAnswerServlet extends HttpServlet {
         response.setContentType("text/html;charset=GB2312");
 
         System.out.println("------------SaveAnswerServlet work start-----------");
-        System.out.println("作文题结果是:"+request.getParameter("writing")+"<br>");
+        System.out.println("作文结果是:"+request.getParameter("writing")+"<br>");
 
 
         WritingAnswerBean writingAnswerBean = WebUtils.requestToBean(request, WritingAnswerBean.class);
@@ -63,21 +60,16 @@ public class SaveWritingAnswerServlet extends HttpServlet {
     private void saveWritingAnswer(HttpServletRequest request, HttpServletResponse response, WritingAnswerBean writingAnswerBean)
             throws ServletException, IOException {
         try {
-            SaverService.save(writingAnswerBean.getQuestion(),1);
+            User user = (User) request.getSession().getAttribute("user");
+            int userId = user.getUserId();
+            SaverService.save(writingAnswerBean.getQuestion(),2, userId, 1);//【试卷号】
             System.out.println("Success save writing answer");
             System.out.println(writingAnswerBean.toString());
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
 
-//        if (user == null) {
-//            return false;
-//        } else {
-//            // 成功登录
-//            request.getSession().setAttribute("user", user);
-//            System.out.println("--------User login succeed-----------");
-//            return true;
-//        }
+
     }
 
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
