@@ -11,12 +11,12 @@
 </head>
 <body>
 	<!-- 无itemsPage且没有操作失败,进入时，重新请求getUsersPagesServlet -->
-	<c:if
-		test="${empty itemsPage and empty operateSuccess and empty operateError}">
-		<script>
-			window.location.href = '${pageContext.request.contextPath}/servlet/getItemsPageServlet';
-		</script>
-	</c:if>
+<%--	<c:if--%>
+<%--		test="${empty itemsPage and empty operateSuccess and empty operateError}">--%>
+<%--		<script>--%>
+<%--			window.location.href = '${pageContext.request.contextPath}/servlet/getItemsPageServlet';--%>
+<%--		</script>--%>
+<%--	</c:if>--%>
 
 	<!-- 网页头部 -->
 	<jsp:include page="/jspfragments/header.jsp" />
@@ -39,18 +39,18 @@
 						<ul class="nav nav-pills nav-stacked">
 							<li class="disabled"><a href="#"><font size="3"
 									style="font-weight: bold;"><span
-										class="glyphicon glyphicon-th-large"></span>管理中心</font></a></li>
+										class="glyphicon glyphicon-th-large"></span>阅卷中心</font></a></li>
 						</ul>
 					</div>
 					<div class="panel-body">
 						<ul class="nav nav-pills nav-stacked">
 							<li><a
 								href="${pageContext.request.contextPath}/pages/admin/manage-users.jsp">
-									<span class="glyphicon glyphicon-user"></span> 管理用户
+									<span class="glyphicon glyphicon-user"></span> 待批改
 							</a></li>
 							<li class="active"><a
 								href="${pageContext.request.contextPath}/pages/admin/manage-items.jsp"><span
-									class="glyphicon glyphicon glyphicon-leaf"></span> 管理题库</a></li>
+									class="glyphicon glyphicon glyphicon-leaf"></span> 已批改</a></li>
 							<li class="nav-divider"></li>
 <%--							<li><a--%>
 <%--								href="${pageContext.request.contextPath}/pages/admin/history-orders.jsp">--%>
@@ -70,7 +70,7 @@
 				<div class="panel panel-default">
 					<div class="panel-heading">
 						<font size="3"><span
-							class="glyphicon glyphicon glyphicon-leaf"></span> 管理题库 </font>
+							class="glyphicon glyphicon glyphicon-leaf"></span> 已批改 </font>
 					</div>
 				</div>
 				<!-- 下半部分 -->
@@ -78,15 +78,15 @@
 					<!-- 头部 -->
 					<div class="panel-heading" style="height: 55px">
 						<div class="pull-left">
-							<font size="4" style="line-height: 35px">管理题库</font>
+							<font size="4" style="line-height: 35px">已批改</font>
 						</div>
 						<div class="pull-right">
-							<button class="btn btn-primary" data-toggle="modal"
-								data-target="#add-item">
-								<span class="glyphicon glyphicon-plus"></span>新&nbsp;增
-							</button>
+<%--							<button class="btn btn-primary" data-toggle="modal"--%>
+<%--								data-target="#add-item">--%>
+<%--								<span class="glyphicon glyphicon-plus"></span>新&nbsp;增--%>
+<%--							</button>--%>
 							<button class="btn btn-success"
-								onclick="window.location.href='${itemsPage.url }&currentPage=${itemsPage.currentPage}'">
+								onclick="window.location.href='${answerList.url }&currentPage=${answerList.currentPage}'">
 								<span class="glyphicon glyphicon-refresh"></span>刷&nbsp;新
 							</button>
 						</div>
@@ -95,35 +95,77 @@
 					<div class="panel-body">
 						<table class="table table-striped" style="text-align: center">
 							<tr>
-								<td>ID</td>
+								<td>试卷ID</td>
 								<td>考生ID</td>
 								<td>类型</td>
 								<td>得分</td>
 								<td>状态</td>
 							</tr>
-							<%--							<c:forEach var="user" items="${requestScope.usersPage.list}">--%>
-							<tr>
-								<td>0420667</td>
-								<td>10258</td>
-								<td>作文</td>
-								<td>75</td>
-								<td>已批改</td>
+
+							<c:forEach var="item" items="${requestScope.answerList}">
+								<tr>
+									<td>${item.getPaperId()}</td>
+									<td>${item.getUserId()}</td>
+									<td>${item.getStartAnswerNum()}</td>
+									<td>${item.stock}</td>
+									<td>${item.price}</td>
+									<!-- 提交到本页面，激活修改 -->
+									<td><form method="post">
+										<input type="hidden" name="delete" value="1" /> <input
+											type="hidden" name="itemId" value="${item.itemId}" /><input
+											type="hidden" name="name" value="${item.name}" />
+										<button class="btn btn-info" type="submit">
+											<span class="glyphicon glyphicon-remove"></span>
+										</button>
+									</form></td>
+									<td>
+										<form  method="post">
+											<input type="hidden" name="modify" value="1" /> <input
+												type="hidden" name="itemId" value="${item.itemId}" /><input
+												type="hidden" name="name" value="${item.name}" /> <input
+												type="hidden" name="type" value="${item.type}" /> <input
+												type="hidden" name="stock" value="${item.stock}" /> <input
+												type="hidden" name="price" value="${item.price}" /><input
+												type="hidden" name="description" value="${item.description}" />
+											<button class="btn btn-info" type="submit">
+												<span class="glyphicon glyphicon-pencil"></span>
+											</button>
+										</form>
+									</td>
+									<td><form method="post">
+										<input type="hidden" name="addImage" value="1" /> <input
+											type="hidden" name="itemId" value="${item.itemId}" /><input
+											type="hidden" name="name" value="${item.name}" />
+										<button class="btn btn-info" type="submit">
+											<span class="glyphicon glyphicon-upload"></span>
+										</button>
+									</form></td>
 								</tr>
+							</c:forEach>
+
+
+<%--							<tr>--%>
+<%--								<td>0420667</td>--%>
+<%--								<td>10258</td>--%>
+<%--								<td>作文</td>--%>
+<%--								<td>75</td>--%>
+<%--								<td>已批改</td>--%>
+<%--								</tr>--%>
 						</table>
 						<center>第1页/共1页</center>
 						<nav>
 						<ul class="pager">
-							<c:if test="${itemsPage.currentPage>1 }">
+							<c:if test="${answerList.currentPage>1 }">
 								<li class="previous"><a
-									href="${itemsPage.url}&currentPage=1">首页</a></li>
+									href="${answerList.url}&currentPage=1">首页</a></li>
 								<li class="previous"><a
-									href="${itemsPage.url}&currentPage=${itemsPage.currentPage-1}">上一页</a></li>
+									href="${answerList.url}&currentPage=${answerList.currentPage-1}">上一页</a></li>
 							</c:if>
-							<c:if test="${itemsPage.currentPage<itemsPage.totalPage}">
+							<c:if test="${answerList.currentPage<answerList.totalPage}">
 								<li class="next"><a
-									href="${itemsPage.url }&currentPage=${itemsPage.totalPage}">尾页</a></li>
+									href="${answerList.url }&currentPage=${answerList.totalPage}">尾页</a></li>
 								<li class="next"><a
-									href="${itemsPage.url }&currentPage=${itemsPage.currentPage+1}">下一页</a></li>
+									href="${answerList.url }&currentPage=${answerList.currentPage+1}">下一页</a></li>
 
 							</c:if>
 						</ul>
@@ -149,7 +191,7 @@
 					<center>
 						${operateSuccess} <br />
 						<button class="btn btn-primary"
-							onclick="window.location.href='${pageContext.request.contextPath}/servlet/getItemsPageServlet?currentPage=${requestScope.itemsPage.currentPage}'"
+							onclick="window.location.href='${pageContext.request.contextPath}/servlet/getAnsPageServlet?currentPage=${requestScope.answerList.currentPage}'"
 							type="submit" data-dismiss="modal">确&nbsp;&nbsp;定</button>
 					</center>
 				</div>
@@ -178,7 +220,7 @@
 					<center>
 						<h3>${operateError}</h3>
 						<button class="btn btn-primary"
-							onclick="window.location.href='${pageContext.request.contextPath}/servlet/getItemsPageServlet?currentPage=${requestScope.itemsPage.currentPage}'"
+							onclick="window.location.href='${pageContext.request.contextPath}/servlet/getAnsServlet?currentPage=${requestScope.answerList.currentPage}'"
 							type="submit" data-dismiss="modal">确&nbsp;&nbsp;定</button>
 					</center>
 				</div>
