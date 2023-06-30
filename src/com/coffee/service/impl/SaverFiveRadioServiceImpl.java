@@ -16,9 +16,9 @@ public class SaverFiveRadioServiceImpl implements ISaverFiveRadioService{
     private ISaverFiveRadioDao saverDao = new SaverFiveRadioDaoImpl();
 
     @Override
-    public void save(int q1, int q2, int q3, int q4, int q5, int startAnswerNum, int userId, int paperId) throws SQLException
+    public void save(int q1, int q2, int q3, int q4, int q5, int startAnswerNum) throws SQLException
     {
-        saverDao.insert(q1, q2, q3, q4, q5, startAnswerNum, userId, paperId);
+        saverDao.insert(q1, q2, q3, q4, q5, startAnswerNum);
     }
 
     @Override
