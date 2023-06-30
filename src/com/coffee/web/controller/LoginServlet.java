@@ -29,11 +29,9 @@ public class LoginServlet extends HttpServlet {
 
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// 将客户端提交的表单数据封装到LoginFormBean对象中
-//		request.
 		LoginFormBean formBean = WebUtils.requestToBean(request, LoginFormBean.class);
 		System.out.println("login request param = " + request.getQueryString());
 		System.out.println("login request url = " + request.getRequestURL());
-		System.out.println("login request uri = " + request.getRequestURI());
 		System.out.println("------------LoginServlet work start-----------");
 		System.out.println(formBean);
 

@@ -5,5 +5,5 @@ import java.util.List;
 
 import com.coffee.domain.*;
 public interface ISaverWritingDao {
-    void insert(String q, int startAnswerNum, int userId, int paperId) throws SQLException;
+    void insert(String q, int startAnswerNum) throws SQLException;
 }

@@ -62,7 +62,7 @@ public class GetHistoryOrdersPageServlet extends HttpServlet {
 		orderFeature.setUserId(user.getUserId());
 		try {
 			// 获取分页
-			Page<Order> page = PageUtils.getPage(request, response, 5, orderService, orderFeature);
+			Page<Order> page = PageUtils.getPage(request, response, 10, orderService, orderFeature);
 			System.out.println("Get ordersPage:" + page);
 			// 回显
 			request.setAttribute("ordersPage", page);

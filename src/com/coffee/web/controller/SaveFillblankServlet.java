@@ -78,10 +78,8 @@ public class SaveFillblankServlet extends HttpServlet {
     private void saveFiveRadioAnswer(HttpServletRequest request, HttpServletResponse response, FiveRadioAnswerFormBean formBean, int num)
             throws ServletException, IOException {
         try {
-            User user = (User) request.getSession().getAttribute("user");
-            int userId = user.getUserId();
             SaverService.save(formBean.getQuestion1(), formBean.getQuestion2(), formBean.getQuestion3(),
-                    formBean.getQuestion4(), formBean.getQuestion5(), num, userId, 1);
+                    formBean.getQuestion4(), formBean.getQuestion5(), num);
             System.out.println("Success save 5 radio answer");
             System.out.println(formBean.toString());
         } catch (SQLException e) {
