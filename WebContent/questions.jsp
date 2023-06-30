@@ -44,11 +44,23 @@
 
 <%--<c:if test="${not empty sessionScope.user or not empty sessionScope.admin}">--%>
 
-<p>User: ${sessionScope.user}</p>
 
 <c:if test="${empty sessionScope.user}">
-  <center>
-    <font size="50" style="width: 50%"><strong>如需购买，请先登录</strong></font><br />
+
+<section class="events-section section-bg section-padding" id="section_4">
+
+  <div class="container">
+    <div class="row">
+
+      <div class="col-lg-12 col-12">
+        <h2 class="mb-lg-3">题目列表</h2>
+      </div>
+    </div>
+  </div>
+
+
+      <center>
+    <font size="50" style="width: 50%"><strong>请先登录</strong></font><br />
     <button type="submit" class="btn btn-info navbar-btn"
             data-toggle="modal" data-target="#login" style="width: 50%">
       <span class="glyphicon glyphicon-log-in"></span>&nbsp;登&nbsp;&nbsp;录
@@ -62,7 +74,6 @@
 <%--      --%>
 <%--    System.out.println(${sessionScope.user.userI});--%>
 <%--  %>--%>
-  <p>User: ${sessionScope.user.userId}</p>
   <section class="events-section section-bg section-padding" id="section_4">
 
   <div class="container">

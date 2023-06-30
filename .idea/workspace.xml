@@ -15,6 +15,14 @@
   <component name="CodeStyleSettingsInfer">
     <option name="done" value="true" />
   </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
+  </component>
   <component name="LogFilters">
     <option name="FILTER_ERRORS" value="false" />
     <option name="FILTER_WARNINGS" value="false" />
@@ -142,6 +150,9 @@
       <workItem from="1687356282770" duration="5190000" />
       <workItem from="1687363371316" duration="1515000" />
       <workItem from="1687451435229" duration="111000" />
+      <workItem from="1687530128557" duration="4162000" />
+      <workItem from="1687539860457" duration="212000" />
+      <workItem from="1687787997949" duration="6254000" />
     </task>
     <servers />
   </component>

@@ -262,8 +262,8 @@
 							<img src="assets/images/service-02.png" alt="short courses">
 						</div>
 						<div class="main-content">
-							<a href="${pageContext.request.contextPath}/questions.jsp"><h4>查看题库</h4></a>
-							<p>查看过往CET-6考试原题及练习题目</p>
+							<a href="${pageContext.request.contextPath}/questions.jsp"><h4>开始考试</h4></a>
+							<p>点击进入CET6考试答题界面</p>
 <%--							<div class="main-button">--%>
 <%--								<a href="#">Read More</a>--%>
 <%--							</div>--%>

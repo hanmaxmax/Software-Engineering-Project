@@ -78,17 +78,21 @@
 					<ul class="dropdown-menu">
 						<li><a
 								href="${pageContext.request.contextPath}/questions.jsp">全部</a></li>
-						<li class="divider"></li>
-						<li><a
-								href="${pageContext.request.contextPath}/questions.jsp">听力题</a></li>
-						<li class="divider"></li>
-						<li><a
-								href="${pageContext.request.contextPath}/questions.jsp">完形填空</a></li>
-						<li class="divider"></li>
-						<li><a
-								href="${pageContext.request.contextPath}/questions.jsp">阅读题</a></li>
-						<li class="divider"></li>
-						<li><a href="${pageContext.request.contextPath}/questions.jsp">作文</a></li>
+<%--						<li class="divider"></li>--%>
+<%--						<li><a--%>
+<%--								href="${pageContext.request.contextPath}/listening.jsp">听力题</a></li>--%>
+<%--						<li class="divider"></li>--%>
+<%--						<li><a--%>
+<%--								href="${pageContext.request.contextPath}/fillblank.jsp">选词填空</a></li>--%>
+<%--						<li class="divider"></li>--%>
+<%--						<li><a--%>
+<%--								href="${pageContext.request.contextPath}/questions.jsp">阅读题</a></li>--%>
+<%--						<li class="divider"></li>--%>
+<%--						<li><a href="${pageContext.request.contextPath}/questions.jsp">作文</a></li>--%>
+<%--						<li class="divider"></li>--%>
+<%--						<li><a href="${pageContext.request.contextPath}/questions.jsp">作文</a></li>--%>
+
+
 						<%--								href="${pageContext.request.contextPath}/servlet/searchItemPageServlet?type=作文">作文</a></li>--%>
 					</ul></li>
 			</ul>

@@ -23,13 +23,39 @@
 
         <link href="css/index.css" rel="stylesheet">
 
+        <style>
+            #countdown {
+                font-size: 24px;
+                font-weight: bold;
+                text-align: center;
+                position: fixed;
+                top: 10px;
+                right: 10px;
+            }
 
+            /* 添加一些样式以模拟页面滚动 */
+            body {
+                height: 2000px;
+            }
+            h1 {
+                margin-top: 50px;
+            }
+
+        </style>
+
+        <script>
+            function showConfirmation() {
+                window.alert( "The exam ends!");
+                // 用户点击了确认
+                // 跳转到index.jsp页面
+                window.location.href = "index.jsp";
+            }
+        </script>
     </head>
 
     <body>
 
         <main>
-            <p>User: ${sessionScope.user}</p>
 
             <section class="hero-section hero-50 d-flex justify-content-center align-items-center" id="section_1">
 
@@ -46,26 +72,49 @@
                 <div class="container">
                     <div class="row">
 
+                        <div id="countdown">02:00:00</div>
+
+                        <script>
+                            var countdownElement = document.getElementById('countdown');
+                            var totalTime = 2*60*60; // 两个小时的总秒数
+
+                            function updateCountdown() {
+                                var hours = Math.floor(totalTime / 3600);
+                                var minutes = Math.floor((totalTime % 3600) / 60);
+                                var seconds = totalTime % 60;
+
+                                var formattedTime = (hours < 10 ? "0" + hours : hours) + ":" +
+                                    (minutes < 10 ? "0" + minutes : minutes) + ":" +
+                                    (seconds < 10 ? "0" + seconds : seconds);
+
+                                countdownElement.textContent = formattedTime;
+
+                                if (totalTime <= 0) {
+                                    clearInterval(countdownInterval);
+                                    countdownElement.textContent = "The exam ends!";
+                                    showConfirmation();
+                                } else {
+                                    totalTime--;
+                                }
+                            }
+
+                            var countdownInterval = setInterval(updateCountdown, 1000);
+                        </script>
+
+
                         <div class="col-lg-6 col-md-8 col-12 mx-auto">
                             <h2 class="mb-lg-5 mb-4">Writing </h2>
 
-<div class="custom-block-info">
-            <h3 class="mb-3">&nbsp;</h3>
+                    <div class="custom-block-info">
+                                <h3 class="mb-3">&nbsp;</h3>
 						<style>
-							p{width:400px; text-indent:2em}
+							p{width:800px; text-indent:2em}
 						</style>
-                            <p>Directions: For this part, you are allowed 30 minutes to write an essay that begins with the
-                                sentence “Today increasing importance is being attached to cultivating college students’
-                                team spirit.” You can make statements, give reasons, or cite examples to develop your essay. You should write at least 150 words but no more than 200 words</p>
-    <p>Directions: For this part, you are allowed 30 minutes to write an essay that</p>
-    <p>begins with the sentence “Today increasing importance is being attached to </p>
-    <p>cultivating college students’ team spirit.” You can make statements, give</p>
-    <p>reasons, or cite examples to develop your essay. You should write at least</p>
-    <p>150 words but no more than 200 words</p>
-			<p>
-				<style>
-					p{width:400px; text-indent:0em}
-				</style>
+                            <p>Directions: For this part, you are allowed 30 minutes to write an essay that begins with the sentence “Today increasing importance is being attached to cultivating college students’ team spirit.” You can make statements, give reasons, or cite examples to develop your essay. You should write at least 150 words but no more than 200 words</p>
+
+<%--				<style>--%>
+<%--					p{width:400px; text-indent:0em}--%>
+<%--				</style>--%>
 			</p>
 
 
@@ -82,8 +131,7 @@
 
     <form method="POST" action="${pageContext.request.contextPath}/servlet/SaveWritingAnswerServlet" name="form1" οnsubmit="return on_submit()">
 
-
-        <input name="writing" size="200" maxlength=200><br>
+        <input name="writing" style="width: 800px; height: 500px;" maxlength="200"><br>
 
         <input type="submit" value="submit" name="B1"><input type="reset" value="reset" name="B2"><br>
     </form>
