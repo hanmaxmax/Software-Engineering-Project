@@ -25,7 +25,7 @@
 	<!-- utf-8编码Filter -->
 	<filter>
 		<filter-name>CharacterEncodingFilter</filter-name>
-		<filter-class>com.coffee.web.filter.CharacterEncodingFilter</filter-class>
+		<filter-class>com.cet.web.filter.CharacterEncodingFilter</filter-class>
 		<init-param>
 			<param-name>charset</param-name>
 			<param-value>UTF-8</param-value>
@@ -41,7 +41,7 @@
 	<!-- NoCacheFilter -->
 	<filter>
 		<filter-name>NoCacheFilter</filter-name>
-		<filter-class>com.coffee.web.filter.NoCacheFilter</filter-class>
+		<filter-class>com.cet.web.filter.NoCacheFilter</filter-class>
 	</filter>
 	<filter-mapping>
 		<filter-name>NoCacheFilter</filter-name>
@@ -53,7 +53,7 @@
 	<!-- TransactionFilter -->
 	<filter>
 		<filter-name>TransactionFilter</filter-name>
-		<filter-class>com.coffee.web.filter.TransactionFilter</filter-class>
+		<filter-class>com.cet.web.filter.TransactionFilter</filter-class>
 	</filter>
 	<filter-mapping>
 		<filter-name>TransactionFilter</filter-name>
@@ -65,7 +65,7 @@
 		<!-- TransactionFilter -->
 	<filter>
 		<filter-name>AutoLoginFilter</filter-name>
-		<filter-class>com.coffee.web.filter.AutoLoginFilter</filter-class>
+		<filter-class>com.cet.web.filter.AutoLoginFilter</filter-class>
 	</filter>
 	<filter-mapping>
 		<filter-name>AutoLoginFilter</filter-name>
@@ -78,7 +78,7 @@
 		<!-- UserAuthorityFilter -->
 	<filter>
 		<filter-name>UserAuthorityFilter</filter-name>
-		<filter-class>com.coffee.web.filter.UserAuthorityFilter</filter-class>
+		<filter-class>com.cet.web.filter.UserAuthorityFilter</filter-class>
 	</filter>
 	<filter-mapping>
 		<filter-name>UserAuthorityFilter</filter-name>
@@ -90,7 +90,7 @@
 			<!-- UserAuthorityFilter -->
 	<filter>
 		<filter-name>AdminAuthorityFilter</filter-name>
-		<filter-class>com.coffee.web.filter.AdminAuthorityFilter</filter-class>
+		<filter-class>com.cet.web.filter.AdminAuthorityFilter</filter-class>
 	</filter>
 	<filter-mapping>
 		<filter-name>AdminAuthorityFilter</filter-name>
