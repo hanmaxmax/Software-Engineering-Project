@@ -16,12 +16,22 @@
 	<script src="https://cdn.bootcss.com/jquery/2.1.1/jquery.min.js"></script>
 	<script
 			src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
 	<script
 			src="${pageContext.request.contextPath}/js/verify-modify-user.js"></script>
 
 </head>
 <body>
+<c:if
+		test="${empty answerList and empty registerSuccess and empty registerError and empty operateSuccess}">
+	<script>
+		window.location.href = '${pageContext.request.contextPath}/servlet/getAnsServlet';
+	</script>
+</c:if>
+<%
+	pageContext.setAttribute("getAnsServlet", request.getContextPath() + "/servlet/getAnsServlet");
+	request.setAttribute("forwardUrl", "/pages/admin/manage-users2.jsp"); //map
+%>
+
 <jsp:include page="/jspfragments/register-user.jsp" />
 
 <!-- 网页头部 -->
@@ -72,7 +82,7 @@
 			<div class="panel panel-default">
 				<div class="panel-heading">
 					<font size="3"> <span class="glyphicon glyphicon-user"></span>
-						管理用户
+						待批改
 					</font>
 				</div>
 			</div>
@@ -84,12 +94,12 @@
 						<font size="4" style="line-height: 35px">待批改</font>
 					</div>
 					<div class="pull-right">
-						<button class="btn btn-primary" data-toggle="modal"
-								data-target="#register">
-							<span class="glyphicon glyphicon-plus"></span>新&nbsp;增
-						</button>
+<%--						<button class="btn btn-primary" data-toggle="modal"--%>
+<%--								data-target="#register">--%>
+<%--							<span class="glyphicon glyphicon-plus"></span>新&nbsp;增--%>
+<%--						</button>--%>
 						<button class="btn btn-success"
-								onclick="window.location.href='${getUsersPageServlet}'">
+								onclick="window.location.href='${getAnsServlet}'">
 							<span class="glyphicon glyphicon-refresh"></span>刷&nbsp;新
 						</button>
 					</div>
@@ -98,25 +108,32 @@
 				<div class="panel-body">
 					<table class="table table-striped" style="text-align: center">
 						<tr>
-							<td>ID</td>
-							<td>考生ID</td>
+							<td>考试ID</td>
+							<td>试卷ID</td>
 							<td>类型</td>
 							<td>状态</td>
 							<td>编辑</td>
 						</tr>
-<%--						<c:forEach var="user" items="${requestScope.usersPage.list}">--%>
+						<c:forEach var="item" items="${requestScope.answerList}">
 							<tr>
-								<td>0420667</td>
-								<td>10258</td>
-								<td>作文</td>
-								<td>待批改</td>
+								<td>${item.userId}</td>
+								<td>${item.paperId}</td>
+								<td>${item.startAnswerNum}</td>
+								<td>未批改</td>
 								<!-- 提交到本页面，激活修改 -->
 								<td>
-									<button class="btn btn-info">
-										<a
-												href="${pageContext.request.contextPath}/grade.jsp"><span
-												class="glyphicon glyphicon glyphicon-leaf"></span> 编辑</a>
-									</button>
+									<form action="${pageContext.request.contextPath}/grade.jsp" method="get">
+<%--										<input type="hidden" name="dataKey_content" value="${item.content}" />--%>
+										<input type="hidden" name="dataKey_userId" value="${item.userId}" />
+										<input type="hidden" name="dataKey_paperId" value="${item.paperId}" />
+										<span class="glyphicon glyphicon glyphicon-leaf"></span>
+										<button class="btn btn-info" type="submit">批改</button>
+									</form>
+<%--									<button class="btn btn-info">--%>
+
+<%--										<a href="${pageContext.request.contextPath}/grade.jsp"><span--%>
+<%--												class="glyphicon glyphicon glyphicon-leaf"></span> 批改</a>--%>
+<%--									</button>--%>
 <%--									<form method="post">--%>
 <%--										<input type="hidden" name="modify" value="1" /> <input--%>
 <%--											type="hidden" name="account" value="${user.account}" /> <input--%>
@@ -129,26 +146,26 @@
 <%--									</form>--%>
 								</td>
 							</tr>
-<%--						</c:forEach>--%>
+						</c:forEach>
 					</table>
 					<center>第1页/共1页</center>
-<%--					<center>第${usersPage.currentPage}页/共${usersPage.totalPage}页</center>--%>
+<%--					<center>第${answerList.currentPage}页/共${answerList.totalPage}页</center>--%>
 					<nav>
-						<ul class="pager">
-							<c:if test="${usersPage.currentPage>1 }">
-								<li class="previous"><a
-										href="${usersPage.url}&currentPage=1">首页</a></li>
-								<li class="previous"><a
-										href="${usersPage.url}&currentPage=${usersPage.currentPage-1 }">上一页</a></li>
-							</c:if>
-							<c:if test="${usersPage.currentPage<usersPage.totalPage}">
-								<li class="next"><a
-										href="${usersPage.url }&currentPage=${usersPage.totalPage }">尾页</a></li>
-								<li class="next"><a
-										href="${usersPage.url }&currentPage=${usersPage.currentPage+1 }">下一页</a></li>
+<%--						<ul class="pager">--%>
+<%--							<c:if test="${answerList.currentPage>1 }">--%>
+<%--								<li class="previous"><a--%>
+<%--										href="${answerList.url}&currentPage=1">首页</a></li>--%>
+<%--								<li class="previous"><a--%>
+<%--										href="${answerList.url}&currentPage=${answerList.currentPage-1 }">上一页</a></li>--%>
+<%--							</c:if>--%>
+<%--							<c:if test="${answerList.currentPage<answerList.totalPage}">--%>
+<%--								<li class="next"><a--%>
+<%--										href="${answerList.url }&currentPage=${answerList.totalPage }">尾页</a></li>--%>
+<%--								<li class="next"><a--%>
+<%--										href="${answerList.url }&currentPage=${answerList.currentPage+1 }">下一页</a></li>--%>
 
-							</c:if>
-						</ul>
+<%--							</c:if>--%>
+<%--						</ul>--%>
 					</nav>
 				</div>
 			</div>
@@ -174,9 +191,10 @@
 
 			<!-- 主体 -->
 			<div class="modal-body">
-				<form
-						action="${pageContext.request.contextPath}/servlet/modifyUserServlet?currentPage=${requestScope.usersPage.currentPage}"
-						onSubmit="return checkModifyInfo()" method="post">
+
+<%--				<form--%>
+<%--						action="${pageContext.request.contextPath}/servlet/modifyUserServlet?currentPage=${requestScope.answerList.currentPage}"--%>
+<%--						onSubmit="return checkModifyInfo()" method="post">--%>
 
 					<div class="form-group has-feedback">
 						<label for="account">用户名</label>
@@ -286,7 +304,7 @@
 			<div class="modal-body">
 				<center>
 					<button class="btn btn-primary"
-							onclick="window.location.href='${pageContext.request.contextPath}/servlet/getUsersPageServlet?currentPage=${requestScope.usersPage.currentPage}'"
+							onclick="window.location.href = '${pageContext.request.contextPath}/servlet/getAnsServlet'"
 							type="submit" data-dismiss="modal">确&nbsp;&nbsp;定</button>
 				</center>
 			</div>

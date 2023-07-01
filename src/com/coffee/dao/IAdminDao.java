@@ -27,6 +27,7 @@ public interface IAdminDao {
 	 * @return 查到的管理员
 	 */
 	Admin find(String account) throws SQLException;
+	Admin find_manager(String account) throws SQLException;
 
 	/**
 	 * 修改管理员信息，如密码

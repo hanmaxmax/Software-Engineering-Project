@@ -15,14 +15,21 @@
         }
     </style>
 
+    <jsp:useBean id="getRegPageServlet" class="com.coffee.web.controller.GetRegPageServlet" />
 </head>
 <body>
 
+
+<%
+    request.setAttribute("forwardUrl", "/pages/user/registration-his.jsp"); //map
+%>
+
 <!-- 无regPage且没有操作失败,进入时，重新请求getRegPagesServlet -->
 <c:if test="${empty requestScope.RegsList}">
-    <script>
-        window.location.href = '${pageContext.request.contextPath}/servlet/getRegPageServlet';
-    </script>
+    <%
+        // 调用doPost()方法
+        getRegPageServlet.doPost(request, response);
+    %>
 </c:if>
 
 <!-- 网页头部 -->

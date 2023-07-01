@@ -16,6 +16,8 @@
 
 	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/CAPTCHA.css">
 	<script src="${pageContext.request.contextPath}/js/apply.js"></script>
+	<meta charset="UTF-8">
+
 </head>
 
 <body>
@@ -48,7 +50,7 @@
 			</div>
 
 			<div class="modal-body">
-				<form action="${pageContext.request.contextPath}/servlet/registrationServlet?forwardUrl=${forwardUrl}" method="post">
+				<form action="${pageContext.request.contextPath}/servlet/registrationServlet?forwardUrl=${forwardUrl}" method="post" accept-charset="UTF-8">
 					<div class="form-group has-feedback">
 						<label for="exam-time">考试时间</label>
 						<select id="exam-time" name="examtime" class="form-control">
@@ -62,7 +64,7 @@
 								<span class="input-group-addon"><span
 										class="glyphicon glyphicon-user"></span></span> <input
 								id="apply-name" name="username" class="form-control"
-								placeholder="请输入真实姓名" maxlength="20" type="text">
+								placeholder="请输入真实姓名" maxlength="20" type="text" accept-charset="UTF-8">
 						</div>
 
 						<span style="color: red; display: none;" class="tips"></span> <span

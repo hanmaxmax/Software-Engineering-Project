@@ -20,6 +20,7 @@ public class Registration implements Serializable{
     private String tel;
     private String examid;
 
+
     public int getRegid() {
         return regid;
     }

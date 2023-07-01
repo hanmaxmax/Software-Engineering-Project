@@ -18,6 +18,7 @@ public class LogoutServlet extends HttpServlet {
 		// 移除存储在session中的user/admin
 		request.getSession().removeAttribute("user");
 		request.getSession().removeAttribute("admin");
+		request.getSession().removeAttribute("teacher");
 		// 移除自动登录的cookie
 		removeAutoLoginCookie(request, response);
 		System.out.println("-------Logout succeed-------");

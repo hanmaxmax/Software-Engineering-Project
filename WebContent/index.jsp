@@ -176,10 +176,6 @@
 					<img
 							src="${pageContext.request.contextPath}/images/home/carousel2.png">
 				</div>
-				<%--				<div class="item">--%>
-				<%--					<img--%>
-				<%--						src="${pageContext.request.contextPath}/images/index/carousel3.png">--%>
-				<%--				</div>--%>
 			</div>
 
 			<!-- Controls -->
@@ -212,7 +208,7 @@
                             <c:if test="${empty sessionScope.user}">
 								<a href="#" onclick="showAlert();"><h4>进入报名</h4></a>
 								<script>
-									function showAlert() {alert("请先登录");}
+									function showAlert() {alert("请先登录学生用户");}
 								</script>
 							</c:if>
                             <c:if test="${not empty sessionScope.user}">
@@ -229,7 +225,7 @@
 							<img src="assets/images/service-02.png" alt="short courses">
 						</div>
 						<div class="main-content">
-							<a href="${pageContext.request.contextPath}/questions.jsp"><h4>查看题库</h4></a>
+							<a href="${pageContext.request.contextPath}/questions.jsp"><h4>在线考试</h4></a>
 							<p>查看过往CET-6考试原题及练习题目</p>
 <%--							<div class="main-button">--%>
 <%--								<a href="#">Read More</a>--%>
@@ -248,7 +244,7 @@
 							<c:if test="${empty sessionScope.user}">
 								<a href="#" onclick="showAlert();"><h4>成绩查询</h4></a>
 								<script>
-									function showAlert() {alert("请先登录");}
+									function showAlert() {alert("请先登录学生用户");}
 								</script>
 							</c:if>
 							<c:if test="${not empty sessionScope.user}">

@@ -50,6 +50,17 @@ public class StudentDao implements IStudentDao {
     }
 
     @Override
+    public Registration findregid(int id) throws SQLException {
+        QueryRunner qr = new QueryRunner();
+        BeanProcessor bean = new GenerousBeanProcessor();
+        RowProcessor processor = new BasicRowProcessor(bean);
+        String sql = "select * from `registration` where reg_id=?";
+
+        return (Registration) qr.query(ConnectionContext.getInstance().getConnection(), sql, id,
+                new BeanHandler<Registration>(Registration.class, processor));
+    }
+
+    @Override
     public void pay(Registration re) throws SQLException {
         QueryRunner runner = new QueryRunner();
         System.out.println(re.getExamid());
@@ -67,5 +78,14 @@ public class StudentDao implements IStudentDao {
 
         return (List<Registration>) qr.query(ConnectionContext.getInstance().getConnection(), sql,userid,
                 new BeanListHandler<Registration>(Registration.class, processor));
+    }
+
+    @Override
+    public void payforreg(Registration re) throws SQLException {
+        QueryRunner runner = new QueryRunner();
+        System.out.println(re.getExamid());
+        String sql = "update `registration` set payment_status = '1' , exam_id =? where reg_id =?";
+        Object[] params = {re.getExamid(),re.getRegid()};
+        runner.update(ConnectionContext.getInstance().getConnection(), sql, params);
     }
 }

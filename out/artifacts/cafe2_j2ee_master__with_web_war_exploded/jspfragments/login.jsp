@@ -39,14 +39,15 @@
 
 				<!-- 登录表单 -->
 				<div class="modal-body">
-					<form class="form-group" action="${pageContext.request.contextPath}/servlet/loginServlet" method="post">
+					<form class="form-group"
+						action="${pageContext.request.contextPath}/servlet/loginServlet"
+						method="post">
 						<div class="form-group has-feedback">
 							<label for="login-account">用户名</label>
 							<div class="input-group">
-								<span class="input-group-addon">
-									<span class="glyphicon glyphicon-user"></span>
-								</span>
-								<input id="login-account" name="account" class="form-control"
+								<span class="input-group-addon"><span
+									class="glyphicon glyphicon-user"></span></span> <input
+									id="login-account" name="account" class="form-control"
 									placeholder="请输入用户名" maxlength="20" type="text">
 							</div>
 						</div>
@@ -63,16 +64,20 @@
 
 						<div class="btn-group pull-left" data-toggle="buttons">
 							<label class="btn btn-default active"> <input
-								name="status" value="user" type="radio" checked>用户(默认)
-							</label> <label class="btn btn-default"> <input name="status"
-								value="admin" type="radio"> 管理员
+								name="status" value="user" type="radio" checked>学生用户
+							</label>
+							<label class="btn btn-default"> <input name="status"
+								value="admin" type="radio"> 教师
+							</label>
+							<label class="btn btn-default">
+								<input name="status" value="admin" type="radio"> 管理员
 							</label>
 						</div>
 
 						<div class="text-right">
 							<span class="text-danger">${requestScope.loginError}</span>
 							<!-- 2*24*60*60= 172800-->
-							<input type="checkbox" name="logintime" value="172800">记住密码&nbsp;&nbsp;
+<%--							<input type="checkbox" name="logintime" value="172800">记住密码&nbsp;&nbsp;--%>
 							<button class="btn btn-primary" type="submit">登录</button>
 							<button class="btn btn-danger" data-dismiss="modal">取消</button>
 						</div>

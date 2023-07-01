@@ -31,15 +31,6 @@ public class SaveListeningAnswerServlet extends HttpServlet {
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         response.setContentType("text/html;charset=GB2312");
-//        PrintWriter out=response.getWriter();
-//        System.out.println("<html><head><title>接收新用户注册</title></head> <body>");
-//        System.out.println("这是新用户注册所提交的数据:<br>");
-//        System.out.println("用户名是:"+codeToString(request.getParameter("username"))+"<br>");
-//        System.out.println("密码是:"+codeToString(request.getParameter("userpassword"))+"<br>");
-//        System.out.println("性别是:"+codeToString(request.getParameter("sex"))+"<br>");
-//        System.out.println("出生年月是:"+request.getParameter("year")+request.getParameter("month")+request.getParameter("day")+"<br>");
-//        System.out.println("电子邮箱是:"+request.getParameter("E-mail")+"<br>");
-//        System.out.println("家庭住址是:"+codeToString(request.getParameter("address"))+"<br>");
         System.out.println("------------SaveAnswerServlet work start-----------");
         System.out.println("单选题1结果是:"+request.getParameter("RadioGroup1")+"<br>");
         System.out.println("单选题2结果是:"+request.getParameter("RadioGroup2")+"<br>");
@@ -127,6 +118,7 @@ public class SaveListeningAnswerServlet extends HttpServlet {
         System.out.println("formBean: "+formBean.toString());
         saveFiveRadioAnswer(request, response, formBean, 21);
         // 弹框提示保存成功？
+        response.sendRedirect("/questions.jsp");
     }
 
     public String codeToString(String str)  // 处理中文字符串的函数
@@ -146,22 +138,16 @@ public class SaveListeningAnswerServlet extends HttpServlet {
     private void saveFiveRadioAnswer(HttpServletRequest request, HttpServletResponse response, FiveRadioAnswerFormBean formBean, int num)
             throws ServletException, IOException {
         try {
+            User user = (User) request.getSession().getAttribute("user");
+            int userId = user.getUserId();
             SaverService.save(formBean.getQuestion1(), formBean.getQuestion2(), formBean.getQuestion3(),
-                    formBean.getQuestion4(), formBean.getQuestion5(), num);
+                    formBean.getQuestion4(), formBean.getQuestion5(), num, userId, 1);
             System.out.println("Success save 5 radio answer");
             System.out.println(formBean.toString());
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
 
-//        if (user == null) {
-//            return false;
-//        } else {
-//            // 成功登录
-//            request.getSession().setAttribute("user", user);
-//            System.out.println("--------User login succeed-----------");
-//            return true;
-//        }
     }
 
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

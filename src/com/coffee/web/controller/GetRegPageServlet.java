@@ -32,6 +32,8 @@ public class GetRegPageServlet extends HttpServlet {
     @Override
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         System.out.println("------------GetRegPageServlet work start-----------");
+        String forwardUrl = (String) request.getAttribute("forwardUrl");
+        System.out.println("forwardUrl: " + forwardUrl);
         // 从session中直接取出user
         User user = (User) request.getSession().getAttribute("user");
         int userid=user.getUserId();
@@ -42,11 +44,11 @@ public class GetRegPageServlet extends HttpServlet {
                 System.out.println(registration);
             }
             request.setAttribute("RegsList", regs);
-            request.getRequestDispatcher("/pages/user/registration-his.jsp").forward(request, response);
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
+            request.getRequestDispatcher(forwardUrl).forward(request, response);
         } catch (Exception e) {
-            e.printStackTrace();
+            request.setAttribute("message", "对不起，查询失败！！");
+            request.getRequestDispatcher("/message.jsp").forward(request, response);
+            throw new RuntimeException(e);
         }
     }
 

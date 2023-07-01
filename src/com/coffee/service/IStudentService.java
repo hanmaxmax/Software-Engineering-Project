@@ -47,5 +47,5 @@ public interface IStudentService{
 	 * @param re
 	 * @throws Exception
 	 */
-	void payforreg(Registration re) throws Exception;
+	Registration payforreg(int re) throws Exception;
 }

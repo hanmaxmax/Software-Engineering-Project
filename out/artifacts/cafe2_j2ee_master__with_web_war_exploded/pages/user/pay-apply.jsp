@@ -61,15 +61,13 @@
                         <button class="btn btn-primary" type="submit" >提 交</button>
                         <button class="btn btn-danger" data-dismiss="modal">取 消</button>
                     </div>
-
-
                 </form>
             </div>
         </div>
     </div>
 </div>
 
-<!-- 报名失败弹框 -->
+<!-- 失败弹框 -->
 <div id="apply-fail" class="modal fade">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -80,44 +78,21 @@
             <!-- 主体 -->
             <div class="modal-body">
                 <div class="text-right">
-                    <button class="btn btn-primary" type="submit" onclick="window.location.href='${pageContext.request.contextPath}${forwardUrl}'" data-dismiss="modal">确  定</button>
+                    <button class="btn btn-primary" type="submit" onclick="window.location.href='${pageContext.request.contextPath}${forwardUrl}'" data-dismiss="modal">确  定
+                    </button>
                 </div>
             </div>
         </div>
     </div>
 </div>
 
-<!-- 报名失败之后返回，重新打开模态框 -->
-<c:if test="${not empty registrationError}">
+<!-- 失败之后返回，重新打开模态框 -->
+<c:if test="${not empty requestScope.paymentError}">
     <script>
         $('#apply-fail').modal("show");
     </script>
 </c:if>
 
-<!-- 报名成功弹框 -->
-<div id="apply-success" class="modal fade">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-title">
-                <h1 class="text-center">缴费成功</h1>
-            </div>
-
-            <!-- 主体 -->
-            <div class="modal-body">
-                <div class="text-right">
-                    <button class="btn btn-primary" type="submit" onclick="window.location.href='${pageContext.request.contextPath}${forwardUrl}'" data-dismiss="modal">确  定</button>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- 报名成功后提示 -->
-<c:if test="${not empty requestScope.registrationSuccess}">
-    <script>
-        $('#apply-success').modal("show");
-    </script>
-</c:if>
 
 </body>
 </html>

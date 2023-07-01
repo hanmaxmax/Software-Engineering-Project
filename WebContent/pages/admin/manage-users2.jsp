@@ -82,7 +82,7 @@
 			<div class="panel panel-default">
 				<div class="panel-heading">
 					<font size="3"> <span class="glyphicon glyphicon-user"></span>
-						管理用户
+						待批改
 					</font>
 				</div>
 			</div>
@@ -94,10 +94,10 @@
 						<font size="4" style="line-height: 35px">待批改</font>
 					</div>
 					<div class="pull-right">
-						<button class="btn btn-primary" data-toggle="modal"
-								data-target="#register">
-							<span class="glyphicon glyphicon-plus"></span>新&nbsp;增
-						</button>
+<%--						<button class="btn btn-primary" data-toggle="modal"--%>
+<%--								data-target="#register">--%>
+<%--							<span class="glyphicon glyphicon-plus"></span>新&nbsp;增--%>
+<%--						</button>--%>
 						<button class="btn btn-success"
 								onclick="window.location.href='${getAnsServlet}'">
 							<span class="glyphicon glyphicon-refresh"></span>刷&nbsp;新
@@ -108,8 +108,8 @@
 				<div class="panel-body">
 					<table class="table table-striped" style="text-align: center">
 						<tr>
+							<td>考试ID</td>
 							<td>试卷ID</td>
-							<td>考生ID</td>
 							<td>类型</td>
 							<td>状态</td>
 							<td>编辑</td>

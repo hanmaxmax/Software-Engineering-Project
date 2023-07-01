@@ -28,16 +28,22 @@ public class PaymentTwoServlet extends HttpServlet {
         System.out.println("forwardUrl: " + forwardUrl);
         try {
             int regid = Integer.parseInt(request.getParameter("regid"));
-            // 在控制台打印表单字段的值
-            //System.out.println("Regid: " + regid);
             Registration re = new Registration();
             re.setRegid(regid);
-            //studentService.payforreg(re);
-            //request.setAttribute("paymentSuccess", "支付成功！！");
-            //request.getRequestDispatcher(forwardUrl).forward(request, response);
+
+            re=studentService.payforreg(re.getRegid());
+            if(re.getPaymentstatus()==0){
+                request.setAttribute("paymentSuccess", "支付跳转！！");
+                request.getSession().setAttribute("registration",re);
+                response.sendRedirect("/payment.jsp");
+            }
+            else {
+                request.setAttribute("paymentError", "重复缴费！！");
+                request.getRequestDispatcher(forwardUrl).forward(request, response);
+            }
         } catch (Exception e) {
-            //request.setAttribute("message", "支付失败！！");
-            //request.getRequestDispatcher("/message.jsp").forward(request, response);
+            request.setAttribute("message", "支付失败！！");
+            request.getRequestDispatcher("/message.jsp").forward(request, response);
             throw new RuntimeException(e);
         }
     }

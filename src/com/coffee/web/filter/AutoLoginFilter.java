@@ -78,14 +78,25 @@ public class AutoLoginFilter implements Filter {
 
 	private void adminLogin(HttpServletRequest request, HttpServletResponse response, String account, String password) {
 		Admin admin = null;
+		Admin teacher = null;
+		int type = 0;
 		try {
-			admin = adminService.login(account, password);
+			admin = adminService.login_manager(account, password);
 			System.out.println(admin);
 		} catch (SQLException e) {
 		}
+		if (admin != null)type=1;
+		try {
+			teacher = adminService.login(account, password);
+			System.out.println(admin);
+		} catch (SQLException e) {
+		}
+		if (teacher != null)type=2;
 
-		if (admin != null) {
+		if (type==1) {
 			request.getSession().setAttribute("admin", admin);
+		}else if(type == 2){
+			request.getSession().setAttribute("teacher", teacher);
 		}
 	}
 

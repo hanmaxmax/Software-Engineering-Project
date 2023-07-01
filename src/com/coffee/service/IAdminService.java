@@ -20,5 +20,6 @@ public interface IAdminService {
 	 * @throws SQLException
 	 */
 	Admin login(String account, String password) throws SQLException;
+	Admin login_manager(String account, String password) throws SQLException;
 
 }

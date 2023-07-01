@@ -1,4 +1,22 @@
+<%@ page import="java.io.FileReader" %>
+<%@ page import="org.json.JSONObject" %>
+<%@ page import="java.io.FileInputStream" %>
+<%@ page import="java.io.InputStreamReader" %><%
+    String filePath = "D:\\IDEA\\cafe2-j2ee-master -with-web\\cafe2-j2ee-master -with-web\\WebContent\\applicant.json";
+//    FileReader fileReader = new FileReader(filePath);
+    InputStreamReader fileReader =new InputStreamReader(new FileInputStream(filePath),"UTF-8");
+    char[] buffer = new char[1024];
+    StringBuilder stringBuilder = new StringBuilder();
+    int numRead;
+    while ((numRead = fileReader.read(buffer)) != -1) {
+        stringBuilder.append(buffer, 0, numRead);
+    }
+    System.out.println("jsonContent!!!"+stringBuilder.substring(0));
+    JSONObject jsonObject = new JSONObject(stringBuilder.substring(0));
+    String writingCompC = jsonObject.getString("Writing");
+%>
 <!doctype html>
+
 <html lang="en">
     <head>
         <meta charset="utf-8">
@@ -8,6 +26,7 @@
         <meta name="author" content="">
 
         <title>Online CET6 Exam System</title>
+
 
         <!-- CSS FILES -->
         <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -22,13 +41,39 @@
 
         <link href="css/index.css" rel="stylesheet">
 
+        <style>
+            #countdown {
+                font-size: 24px;
+                font-weight: bold;
+                text-align: center;
+                position: fixed;
+                top: 10px;
+                right: 10px;
+            }
 
+            /* ï¿½ï¿½ï¿½ï¿½Ò»Ð©ï¿½ï¿½Ê½ï¿½ï¿½Ä£ï¿½ï¿½Ò³ï¿½ï¿½ï¿½ï¿½ï¿½ */
+            body {
+                height: 2000px;
+            }
+            h1 {
+                margin-top: 50px;
+            }
+
+        </style>
+
+        <script>
+            function showConfirmation() {
+                window.alert( "The exam ends!");
+                // ï¿½Ã»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È·ï¿½ï¿½
+                // ï¿½ï¿½×ªï¿½ï¿½index.jspÒ³ï¿½ï¿½
+                window.location.href = "index.jsp";
+            }
+        </script>
     </head>
 
     <body>
 
         <main>
-
 
             <section class="hero-section hero-50 d-flex justify-content-center align-items-center" id="section_1">
 
@@ -45,33 +90,56 @@
                 <div class="container">
                     <div class="row">
 
+                        <div id="countdown">02:00:00</div>
+
+                        <script>
+                            var countdownElement = document.getElementById('countdown');
+                            var totalTime = 2*60*60; // ï¿½ï¿½ï¿½ï¿½Ð¡Ê±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+
+                            function updateCountdown() {
+                                var hours = Math.floor(totalTime / 3600);
+                                var minutes = Math.floor((totalTime % 3600) / 60);
+                                var seconds = totalTime % 60;
+
+                                var formattedTime = (hours < 10 ? "0" + hours : hours) + ":" +
+                                    (minutes < 10 ? "0" + minutes : minutes) + ":" +
+                                    (seconds < 10 ? "0" + seconds : seconds);
+
+                                countdownElement.textContent = formattedTime;
+
+                                if (totalTime <= 0) {
+                                    clearInterval(countdownInterval);
+                                    countdownElement.textContent = "The exam ends!";
+                                    showConfirmation();
+                                } else {
+                                    totalTime--;
+                                }
+                            }
+
+                            var countdownInterval = setInterval(updateCountdown, 1000);
+                        </script>
+
+
                         <div class="col-lg-6 col-md-8 col-12 mx-auto">
                             <h2 class="mb-lg-5 mb-4">Writing </h2>
 
-<div class="custom-block-info">
-            <h3 class="mb-3">&nbsp;</h3>
+                    <div class="custom-block-info">
+                                <h3 class="mb-3">&nbsp;</h3>
 						<style>
-							p{width:400px; text-indent:2em}
+							p{width:800px; text-indent:2em}
 						</style>
-                            <p>Directions: For this part, you are allowed 30 minutes to write an essay that begins with the
-                                sentence ¡°Today increasing importance is being attached to cultivating college students¡¯
-                                team spirit.¡± You can make statements, give reasons, or cite examples to develop your essay. You should write at least 150 words but no more than 200 words</p>
-    <p>Directions: For this part, you are allowed 30 minutes to write an essay that</p>
-    <p>begins with the sentence ¡°Today increasing importance is being attached to </p>
-    <p>cultivating college students¡¯ team spirit.¡± You can make statements, give</p>
-    <p>reasons, or cite examples to develop your essay. You should write at least</p>
-    <p>150 words but no more than 200 words</p>
-			<p>
-				<style>
-					p{width:400px; text-indent:0em}
-				</style>
+                        <p><%= writingCompC %></p>
+
+<%--				<style>--%>
+<%--					p{width:400px; text-indent:0em}--%>
+<%--				</style>--%>
 			</p>
 
 
 
     <%@ page contentType="text/html;charset=gb2312" %>
     <script language="javascript">
-        function on_submit()  // ÑéÖ¤Êý¾ÝµÄºÏ·¨ÐÔ
+        function on_submit()  // ï¿½ï¿½Ö¤ï¿½ï¿½ï¿½ÝµÄºÏ·ï¿½ï¿½ï¿½
         {
 
             return true;
@@ -79,10 +147,9 @@
     </script>
 
 
-    <form method="POST" action="${pageContext.request.contextPath}/servlet/SaveWritingAnswerServlet" name="form1" ¦Ïnsubmit="return on_submit()">
+    <form method="POST" action="${pageContext.request.contextPath}/servlet/SaveWritingAnswerServlet" name="form1" ï¿½ï¿½nsubmit="return on_submit()">
 
-
-        <input name="writing" size="200" maxlength=200><br>
+        <input name="writing" style="width: 800px; height: 500px;" maxlength="200"><br>
 
         <input type="submit" value="submit" name="B1"><input type="reset" value="reset" name="B2"><br>
     </form>

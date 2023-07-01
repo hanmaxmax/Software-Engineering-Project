@@ -49,6 +49,7 @@ public class RegistrationServlet extends HttpServlet {
             user = (User) request.getSession().getAttribute("user");
             //System.out.println(re.getExamtime());
             re.setUserId(user.getUserId());
+            System.out.println(re.getUsername());
             studentService.register(re);
             request.setAttribute("registrationSuccess", "报名成功！！");
             request.getSession().setAttribute("registration",re);

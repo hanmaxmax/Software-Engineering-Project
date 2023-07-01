@@ -8,8 +8,18 @@ package com.coffee.domain;
 public class Admin {
 	private int adminId;
 	private String account;
+
+	public int getManager() {
+		return manager;
+	}
+
+	public void setManager(int manager) {
+		this.manager = manager;
+	}
+
 	private String password;
-	
+	private int manager;
+
 	public void setAdminId(int adminId) {
 		this.adminId = adminId;
 	}

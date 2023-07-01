@@ -1,3 +1,4 @@
+<%@ page import="com.coffee.web.controller.GetTextServlet" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -14,6 +15,31 @@
 <body>
 <!-- 网页头部 -->
 <jsp:include page="/jspfragments/header.jsp" />
+<%
+//  String content = request.getParameter("dataKey_content");
+  String userId = request.getParameter("dataKey_userId");
+  String paperId = request.getParameter("dataKey_paperId");
+
+  GetTextServlet yourObject = new GetTextServlet();
+  String content = yourObject.getData(userId, paperId);
+
+  request.setAttribute("content", content);
+  request.setAttribute("userId", userId);
+  request.setAttribute("paperId", paperId);
+//  request.getRequestDispatcher("/grade.jsp").forward(request, response);
+%>
+
+
+<%--<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>--%>
+<%--<c:url var="getContentUrl" value="/servlet/getTextServlet">--%>
+<%--  <c:param name="userId" value="${userId}" />--%>
+<%--  <c:param name="paperId" value="${paperId}" />--%>
+<%--</c:url>--%>
+
+<%--<form action="YourServlet" method="post">--%>
+<%--  <input type="hidden" name="id" value="${yourId}" />--%>
+<%--  <input type="submit" value="获取数据" />--%>
+<%--</form>--%>
 
 <section class="membership-section section-padding" id="section_3">
   <div class="container">
@@ -30,7 +56,9 @@
           <table class="table text-center">
             <tbody>
             <tr>
-              The harm of superstition is mainly manifested in the following aspects. First of all, superstition leads to people's lack of independent thinking and scientific thinking ability. If one believes in superstition all the time, then one may lose the ability to think and analyze things rationally, to be unable to truly understand the nature and truth of things. Secondly, superstition may cause people to make unwise decisions. If a person blindly believes in superstition, he may lose his cognition of reality and rational thinking, so he may make some unwise decisions, which may cause him to miss some opportunities or bring unnecessary risks. Finally, superstitions may affect people's mental health. If a person believes in superstition all the time, he may feel that his beliefs and values are threatened, which can cause him to suffer from anxiety, depression, and other negative emotions.
+<%--              ${content}--%>
+                <%= content.replaceAll("\n", "<br>") %>
+<%--              The harm of superstition is mainly manifested in the following aspects. First of all, superstition leads to people's lack of independent thinking and scientific thinking ability. If one believes in superstition all the time, then one may lose the ability to think and analyze things rationally, to be unable to truly understand the nature and truth of things. Secondly, superstition may cause people to make unwise decisions. If a person blindly believes in superstition, he may lose his cognition of reality and rational thinking, so he may make some unwise decisions, which may cause him to miss some opportunities or bring unnecessary risks. Finally, superstitions may affect people's mental health. If a person believes in superstition all the time, he may feel that his beliefs and values are threatened, which can cause him to suffer from anxiety, depression, and other negative emotions.--%>
             </tr>
             </tbody>
           </table>
@@ -40,17 +68,22 @@
       <div class="col-lg-5 col-12 mx-auto">
         <h4 class="text-white mb-4">批改</h4>
 
-        <form action="#" method="post" class="custom-form membership-form shadow-lg" role="form">
+        <form action="${pageContext.request.contextPath}/servlet/saveScoreServlet" method="post" class="custom-form membership-form shadow-lg" role="form">
           <label for="floatingInput">得分</label>
+            <input type="hidden" name="userId" value="${userId}" />
+            <input type="hidden" name="paperId" value="${paperId}" />
+
           <div class="form-floating">
-            <input type="text" name="full-name" id="full-name" class="form-control" required="">
-
-
+            <input type="text" name="score" id="score" class="form-control">
           </div>
           <button>
-          <li class="active"><a
-                  href="${pageContext.request.contextPath}/pages/admin/manage-items2.jsp"><span
-                  class="glyphicon glyphicon glyphicon-leaf"></span> 确认</a></li></button>>
+          <li class ="active">
+            <input type="submit" value="提交" /></li>
+          </button>
+            <button>
+          <li>
+            <a href="${pageContext.request.contextPath}/pages/admin/manage-users2.jsp">
+              返回</a></li></button>
 <%--          <button><a href="${pageContext.request.contextPath}/pages/admin/manage-items2.jsp">确认</a></button>--%>
       </div>
       </form>

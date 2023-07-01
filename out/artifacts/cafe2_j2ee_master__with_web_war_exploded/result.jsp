@@ -20,7 +20,7 @@
     <div class="row">
 
       <div class="col-lg-12 col-12 text-center mx-auto mb-lg-5 mb-4">
-        <h2><span>成绩查询</h2>
+        <h2><span>成绩查询</span></h2>
       </div>
 <br/>
       <div class="col-lg-6 col-12 mb-3 mb-lg-0">

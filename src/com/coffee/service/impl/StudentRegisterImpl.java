@@ -73,10 +73,10 @@ public class StudentRegisterImpl implements IStudentService {
     }
 
     @Override
-    public void payforreg(Registration re) throws Exception {
-
+    public Registration payforreg(int regid) throws Exception {
+        Registration re=studentDao.findregid(regid);
+        return re;
     }
-
 
 }
 

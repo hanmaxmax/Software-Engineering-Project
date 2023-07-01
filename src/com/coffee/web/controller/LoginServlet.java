@@ -30,8 +30,6 @@ public class LoginServlet extends HttpServlet {
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// 将客户端提交的表单数据封装到LoginFormBean对象中
 		LoginFormBean formBean = WebUtils.requestToBean(request, LoginFormBean.class);
-		System.out.println("login request param = " + request.getQueryString());
-		System.out.println("login request url = " + request.getRequestURL());
 		System.out.println("------------LoginServlet work start-----------");
 		System.out.println(formBean);
 
@@ -134,25 +132,37 @@ public class LoginServlet extends HttpServlet {
 	 * @throws IOException
 	 * @throws ServletException
 	 */
+
 	private boolean adminLogin(HttpServletRequest request, HttpServletResponse response, LoginFormBean formBean)
 			throws ServletException, IOException {
-		Admin admin = null;
-		try {
-			admin = adminService.login(formBean.getAccount(), formBean.getPassword());
-			System.out.println(admin);
-		} catch (SQLException e) {
-			throw new RuntimeException(e);
-		}
+			Admin admin = null;
+			Admin teacher = null;
+			int type = 0;
+			try {
+				admin = adminService.login_manager(formBean.getAccount(), formBean.getPassword());
+				System.out.println(admin);
+			} catch (SQLException e) {
+				throw new RuntimeException(e);
+			}
+			if (admin != null)type=1;
+			try {
+				teacher = adminService.login(formBean.getAccount(), formBean.getPassword());
+				System.out.println(admin);
+			} catch (SQLException e) {
+				throw new RuntimeException(e);
+			}
+			if (teacher != null)type=2;
 
-		if (admin == null) {
-			return false;
-		} else {
-			// 成功登录
-			request.getSession().setAttribute("admin", admin);
-			System.out.println("--------Admin login succeed-----------");
-			return true;
+			if (type==1) {
+				request.getSession().setAttribute("admin", admin);
+				return true;
+			}else if(type == 2){
+				request.getSession().setAttribute("teacher", teacher);
+				return true;
+			}else{
+				return false;
+			}
 		}
-	}
 
 	/**
 	 * 如果有登录的话就先登出
@@ -163,6 +173,9 @@ public class LoginServlet extends HttpServlet {
 	private void adminLogout(HttpServletRequest request, HttpServletResponse response) {
 		if (request.getSession().getAttribute("admin") != null) {
 			request.getSession().removeAttribute("admin");
+		}
+		else if (request.getSession().getAttribute("teacher") != null) {
+			request.getSession().removeAttribute("teacher");
 		}
 	}
 

@@ -17,7 +17,13 @@ public interface IStudentDao {
 
     Registration findusrid(int id) throws SQLException;
 
+    Registration findregid(int regid) throws SQLException;
+
     void pay(Registration re) throws SQLException;
 
     List<Registration> findregs(int userid) throws SQLException;
+
+    void payforreg(Registration re) throws SQLException;
+
+
 }

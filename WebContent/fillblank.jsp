@@ -1,7 +1,56 @@
+<%@ page import="java.io.FileReader" %>
+<%@ page import="org.json.JSONObject" %>
+<%@ page import="static java.awt.SystemColor.window" %>
+<%@ page import="java.io.FileInputStream" %>
+<%@ page import="java.io.InputStreamReader" %>
+
+<%
+    String filePath = "D:\\IDEA\\cafe2-j2ee-master -with-web\\cafe2-j2ee-master -with-web\\WebContent\\applicant.json";
+//    FileReader fileReader = new FileReader(filePath);
+    InputStreamReader fileReader =new InputStreamReader(new FileInputStream(filePath),"UTF-8");
+    char[] buffer = new char[1024];
+    StringBuilder stringBuilder = new StringBuilder();
+    int numRead;
+    while ((numRead = fileReader.read(buffer)) != -1) {
+        stringBuilder.append(buffer, 0, numRead);
+    }
+    System.out.println("jsonContent!!!"+stringBuilder.substring(0));
+    JSONObject jsonObject = new JSONObject(stringBuilder.substring(0));
+
+
+
+    String lisR = jsonObject.getString("Reading Comprehension SectionA");
+    String[] lisRs = lisR.split("#");
+    int i = 0;
+    for (String s:lisRs) {
+        i++;
+        System.out.println(i + s);
+    }
+    String direction=lisRs[0];
+    String content=lisRs[1];
+
+    String questions=lisRs[2];
+    String[] subquestions=new String[15];
+    String[] strs = questions.split("\\)");
+    String[] letter = new String[15];
+    letter[0] = "A"; letter[1] = "F"; letter[2] = "K"; letter[3] = "B"; letter[4] = "G"; letter[5] = "L";
+    letter[6] = "C"; letter[7] = "H"; letter[8] = "M"; letter[9] = "D"; letter[10] = "I"; letter[11] = "N";
+    letter[12] = "E"; letter[13] = "J"; letter[14] = "O";
+
+    for(int j1=1;j1<=15;j1++){
+
+        StringBuilder sb = new StringBuilder(strs[j1]);
+        sb.insert(0, letter[j1-1]);
+        sb.insert(1, ")");
+        sb.delete(sb.length() - 1, sb.length());
+        subquestions[j1-1]=sb.toString();
+    }
+%>
 <!doctype html>
 <html lang="en">
 <head>
-    <meta charset="utf-8">
+    <meta charset="UTF-8">
+
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <meta name="description" content="">
@@ -22,30 +71,6 @@
 
     <link href="css/index.css" rel="stylesheet">
 
-    <%--    <style>--%>
-    <%--        .container {--%>
-    <%--            display: flex;--%>
-    <%--            flex-direction: row;--%>
-    <%--        }--%>
-
-    <%--        .left {--%>
-    <%--            width: 50%;--%>
-    <%--            float: left;--%>
-    <%--            padding: 20px;--%>
-    <%--        }--%>
-
-    <%--        .right {--%>
-    <%--            width: 50%;--%>
-    <%--            position: fixed;--%>
-    <%--            top: 0;--%>
-    <%--            right: 0;--%>
-    <%--            height: 100vh;--%>
-    <%--            overflow: auto;--%>
-    <%--            padding: 20px;--%>
-    <%--        }--%>
-    <%--    </style>--%>
-
-
 
 
     <style>
@@ -57,7 +82,7 @@
         .left {
             width: 50%;
             float: left;
-            padding: 20px;
+            padding: 10px;
             overflow-y: auto;
             scrollbar-width: thin;
             scrollbar-color: gray;
@@ -74,17 +99,42 @@
             scrollbar-width: thin;
             scrollbar-color: gray;
             scrollbar-track-color: lightgray;
-            padding: 20px;
-            background-color: rgba(222, 250, 249, 0.5); /* 添加这一行来设置背景色 */
+            padding: 10px;
+            background-color: rgba(255, 250, 240, 1); /* 添加这一行来设置背景色 */
         }
 
 
+        #countdown {
+            font-size: 24px;
+            font-weight: bold;
+            text-align: center;
+            position: fixed;
+            top: 10px;
+            right: 10px;
+        }
 
+        /* 添加一些样式以模拟页面滚动 */
+        body {
+            height: 2000px;
+        }
+        h1 {
+            margin-top: 50px;
+        }
 
     </style>
 
-
+    <script>
+        function showConfirmation() {
+            window.alert( "The exam ends!");
+            // 用户点击了确认
+            // 跳转到index.jsp页面
+            window.location.href = "index.jsp";
+        }
+    </script>
 </head>
+
+
+
 
 <body>
 
@@ -112,8 +162,7 @@
 
                 <div class="row">
                     <div class="col-lg-6 col-md-8 col-12 mx-auto">
-                        <h2 class="mb-lg-5 mb-4">Passage One </h2>
-                        <pre class="mb-lg-5 mb-4"><em>Questions 46 to 50 are based on the following passage</em></pre>
+                        <em>Passage One </em>
                         <!--
                           <div class="custom-block-image-wrap">
                               <img src="images/professional-golf-player.jpg" class="custom-block-image img-fluid" alt="">
@@ -124,18 +173,9 @@
                             <style>
                                 p{width:400px; text-indent:2em}
                             </style>
-                            <p>Many people asso<span style="font-size: 18px">ciate their self-worth with their work. The more successful their career,</span> the better they feel about themselves. Work-related self-esteem is therefore a worthy ideal to pursue with vigor, right? Well, not always. According to recent research, in which psychologists interviewed 370 full-time workers over a period of three weeks, the reality is a little more complicated. And it involves negative as well as positive consequences.&nbsp;</p>
-                            <p>It's natural to be drawn towards pleasure and to step away from pain. In the workplace, if that pleasure comes from a triumph which swells our self-respect, people will try to repeat the accomplishment. But repeating that accomplishment is often not realistic, which can lead to severe negative emotional consequences when it doesn't reoccur. This form of motivation is widely regarded as a negative type of motivation. It can hinder other more positive motivation types, such as completing a task purely because it's fulfilling or enjoyable. </p>
-                            <p>What consumes the employee instead is a pressing need to feel mighty and sure of themselves. They then take on only tasks and objectives which serve that ego-driven need. As a result, to avoid feelings of shame and worthlessness associated with failure, they extend themselves to such a degree that there's a subsequent adverse effect on their well-being. This internal pressure to succeed at all costs demands a lot of effort. It depletes their energy, culminating in disproportionate levels of damaging sentiment.</p>
-                            <p>What consumes the employee instead is a pressing need to feel mighty and sure of themselves. They then take on only tasks and objectives which serve that ego-driven need. As a result, to avoid feelings of shame and worthlessness associated with failure, they extend themselves to such a degree that there's a subsequent adverse effect on their well-being. This internal pressure to succeed at all costs demands a lot of effort. It depletes their energy, culminating in disproportionate levels of damaging sentiment.</p>
-                            <p>Those negative emotions mount into heightened anxiety, impacting their ability to make the most of their personal life. Their desire to avoid feeling inferior ends up making them feel inferior when it comes to their diminished capacity for friendship and leisure. They end up dissatisfied both at work and outside of it.</p>
-                            <p> But thankfully, for those people compelled almost entirely by this specific form of motivation, the news isn't all bad, or bad at all. The study also discovered several positive outcomes that can actually outweigh the harmful ones. Though these types of employees are motivated by the desire to avoid negative consequences, they are also motivated by the excitement of pursuing emotional rewards. This excitement makes pursuing goals enjoyable and stimulates pleasure and pride that would result from success. An effect of the positive motivation is that it neutralizes the existence of negative motivation. </p>
-                            <p>Sure, it affects people's personal lives to what could be deemed an unhealthy extent, because leisure activities are often seen as a part of life that must be sacrificed to manage work and family demands. However, the way people feel about their work has less to do with whether they're motivated by the preservation of self-esteem but more with the fact that they're simply motivated. </p>
-                            <p>
-                                <style>
-                                    p{width:400px; text-indent:0em}
-                                </style>
-                            </p>
+                            <p><%= direction%></p>
+                            <br>
+                            <p><%= content%></p>
 
 
                         </div>
@@ -153,104 +193,46 @@
 
             <div class="right">
 
+                <div id="countdown">02:00:00</div>
+
+                <script>
+                    var countdownElement = document.getElementById('countdown');
+                    var totalTime = 2*60*60; // 两个小时的总秒数
+
+                    function updateCountdown() {
+                        var hours = Math.floor(totalTime / 3600);
+                        var minutes = Math.floor((totalTime % 3600) / 60);
+                        var seconds = totalTime % 60;
+
+                        var formattedTime = (hours < 10 ? "0" + hours : hours) + ":" +
+                            (minutes < 10 ? "0" + minutes : minutes) + ":" +
+                            (seconds < 10 ? "0" + seconds : seconds);
+
+                        countdownElement.textContent = formattedTime;
+
+                        if (totalTime <= 0) {
+                            clearInterval(countdownInterval);
+                            countdownElement.textContent = "The exam ends!";
+                            showConfirmation();
+                        } else {
+                            totalTime--;
+                        }
+                    }
+
+                    var countdownInterval = setInterval(updateCountdown, 1000);
+                </script>
 
                 <div class="row">
                     <div class="col-lg-6 col-md-8 col-12 mx-auto">
-                        <h2 class="mb-lg-5 mb-4">Passage One </h2>
-                        <pre class="mb-lg-5 mb-4"><em>Questions 46 to 50 are based on the following passage</em></pre>
-                        <!--
-                          <div class="custom-block-image-wrap">
-                              <img src="images/professional-golf-player.jpg" class="custom-block-image img-fluid" alt="">
-                          </div>
-    -->
+
                         <div class="custom-block-info">
                             <h3 class="mb-3">&nbsp;</h3>
-                            <style>
-                                p{width:400px; text-indent:2em}
-                            </style>
 
+                            <% for (int i1 = 0; i1 < subquestions.length; i1++) { %>
+                            <%= subquestions[i1] %>&nbsp;
 
-
-                            <p>		      46. What does the author say about the pursuit of work-related self-esteem?
-                                <br>
-
-                                A) It may result in negative motivation.
-                                <br>
-                                B) It contributes to one's accomplishments.
-                                <br>
-                                C) It can increase one's vigor as one keeps trying.
-                                <br>
-                                D) It costs too much emotionally and psychologically.
-                            </p>
-                            <p>
-                                <style>
-                                    p{width:400px; text-indent:0em}
-                                </style>
-                            </p>
-                            <p>		      47. What do employees tend to do in pursuing work-related self-esteem?
-                                <br>
-
-                                A) Take on tasks well beyond their actual capabilities.
-                                <br>
-                                B) Strive to succeed at the expense of their well-being.
-                                <br>
-                                C) Resort to all means regardless of the consequences.
-                                <br>
-                                D) Exaggerate their sense of shame and worthlessness.
-                            </p>
-
-                            <p>
-                                <style>
-                                    p{width:400px; text-indent:0em}
-                                </style>
-                            </p>
-                            <p>		      48. What do we learn about people over-concerned with work-related self-esteem?
-                                <br>
-
-                                A) They may often feel inferior to their colleagues.
-                                <br>
-                                B) They cannot enjoy their personal life to the full.
-                                <br>
-                                C) They are never satisfied with their achievements.
-                                <br>
-                                D) They have their own view of friendship and leisure.
-                            </p>
-
-                            <p>
-                                <style>
-                                    p{width:400px; text-indent:0em}
-                                </style>
-                            </p>
-                            <p>		      49. What is the good news we learn from the recent research?
-                                <br>
-
-                                A) The pursuit of goals may turn out to be enjoyable and pleasant.
-                                <br>
-                                B) The emotional rewards from goal pursuit are worth the pains taken.
-                                <br>
-                                C) The negative consequences of goal pursuit can mostly be avoided.
-                                <br>
-                                D) The goal of swelling self-esteem can be achieved if one keeps trying.
-                            </p>
-
-                            <p>
-                                <style>
-                                    p{width:400px; text-indent:0em}
-                                </style>
-                            </p>
-                            <p>		      50. What can we infer from the last paragraph?
-                                <br>
-
-                                A) Workers have to make sacrifices to preserve self-esteem.
-                                <br>
-                                B) Self-esteem swells when workers are strongly motivated.
-                                <br>
-                                C) Pursuit of goals affects people's personal lives to an unhealthy extent.
-                                <br>
-                                D) People feel positive about their work as long as they are motivated.
-                            </p>
-                            <p>&nbsp;</p>
-                            <!--<p>Tiya is 100% free CSS template provided by TemplateMo website. Plese tell your friends about our website. Thank you for visiting.</p>-->
+                            <% if ((i1 + 1) % 3 == 0) { %><br><% } %>
+                            <% } %>
 
                             <%@ page contentType="text/html;charset=gb2312" %>
                             <script language="javascript">
@@ -260,7 +242,6 @@
                                     return true;
                                 }
                             </script>
-
 
 
 
@@ -422,7 +403,6 @@
 
                                 <input type="submit" value="submit" name="B1"><input type="reset" value="reset" name="B2"><br>
                             </form>
-
 
 
 

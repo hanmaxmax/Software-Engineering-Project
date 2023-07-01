@@ -39,8 +39,19 @@ public class AdminDaoImpl implements IAdminDao {
 		QueryRunner qr = new QueryRunner();
 		BeanProcessor bean = new GenerousBeanProcessor();
 		RowProcessor processor = new BasicRowProcessor(bean);
-		String sql = "select * from `admin` where account=?";
-		System.out.println("admin sql find");
+		String sql = "select * from `admin` where account=? AND manager = 0";
+		System.out.println("===================== teacher sql find ");
+
+		return (Admin) qr.query(ConnectionContext.getInstance().getConnection(), sql, account,
+				new BeanHandler<Admin>(Admin.class, processor));
+	}
+
+	public Admin find_manager(String account) throws SQLException {
+		QueryRunner qr = new QueryRunner();
+		BeanProcessor bean = new GenerousBeanProcessor();
+		RowProcessor processor = new BasicRowProcessor(bean);
+		String sql = "select * from `admin` where account=? AND manager = 1";
+		System.out.println("===================== manager sql find");
 
 		return (Admin) qr.query(ConnectionContext.getInstance().getConnection(), sql, account,
 				new BeanHandler<Admin>(Admin.class, processor));
