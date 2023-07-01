@@ -218,7 +218,7 @@
                             <img src="assets/images/service-02.png" alt="short courses">
                         </div>
                         <div class="main-content">
-                            <a href="${pageContext.request.contextPath}/questions.jsp"><h4>在线考试</h4></a>
+                            <a href="${pageContext.request.contextPath}/../Exam/questions.jsp"><h4>在线考试</h4></a>
                             <p>查看过往CET-6考试原题及练习题目</p>
                         </div>
                     </div>
@@ -239,7 +239,7 @@
                                 </script>
                             </c:if>
                             <c:if test="${not empty sessionScope.user}">
-                                <a href="${pageContext.request.contextPath}/result.jsp"><h4>成绩查询</h4></a>
+                                <a href="${pageContext.request.contextPath}/../pages/user/result.jsp"><h4>成绩查询</h4></a>
                             </c:if>
                             <p>查询过往考试成绩</p>
                         </div>

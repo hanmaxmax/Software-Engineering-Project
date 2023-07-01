@@ -62,7 +62,7 @@ public class GetFinishAnsServlet extends HttpServlet {
 
 		// 将 answerList 设置到请求作用域中
 		request.setAttribute("finishAnswerList", answerList);
-		request.getRequestDispatcher("/pages/admin/manage-items2.jsp").forward(request, response);
+		request.getRequestDispatcher("/pages/teacher/revise-examination.jsp").forward(request, response);
 
 	}
 

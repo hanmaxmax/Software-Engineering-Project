@@ -48,14 +48,6 @@
 								href="${pageContext.request.contextPath}/pages/admin/manage-users.jsp">
 									<span class="glyphicon glyphicon-user"></span> 管理用户
 							</a></li>
-<%--							<li><a--%>
-<%--								href="${pageContext.request.contextPath}/pages/admin/history-orders.jsp">--%>
-<%--									<span class="glyphicon glyphicon-list-alt"></span> 历史订单--%>
-<%--							</a></li>--%>
-<%--							<li><a--%>
-<%--								href="${pageContext.request.contextPath}/pages/admin/items-heat.jsp">--%>
-<%--									<span class="glyphicon glyphicon-fire"></span> 餐点热度--%>
-<%--							</a></li>--%>
 						</ul>
 					</div>
 				</div>

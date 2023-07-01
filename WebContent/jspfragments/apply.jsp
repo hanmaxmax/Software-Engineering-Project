@@ -169,7 +169,7 @@
 			<!-- 主体 -->
 			<div class="modal-body">
 				<div class="text-right">
-					<a class="btn btn-primary" href="${pageContext.request.contextPath}/payment.jsp">前往缴费</a>
+					<a class="btn btn-primary" href="${pageContext.request.contextPath}/../pages/user/payment.jsp">前往缴费</a>
 					<button class="btn btn-primary" type="submit" onclick="window.location.href='${pageContext.request.contextPath}${forwardUrl}'" data-dismiss="modal">确  定</button>
 				</div>
 			</div>

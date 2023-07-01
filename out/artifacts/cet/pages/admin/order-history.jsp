@@ -46,14 +46,7 @@
 								href="${pageContext.request.contextPath}/pages/admin/manage-items.jsp"><span
 									class="glyphicon glyphicon glyphicon-leaf"></span> 管理菜单</a></li>
 							<li class="nav-divider"></li>
-<%--							<li class="active"><a--%>
-<%--								href="${pageContext.request.contextPath}/pages/admin/order-history.jsp">--%>
-<%--									<span class="glyphicon glyphicon-list-alt"></span> 历史订单--%>
-<%--							</a></li>--%>
-<%--							<li><a--%>
-<%--								href="${pageContext.request.contextPath}/pages/admin/items-heat.jsp">--%>
-<%--									<span class="glyphicon glyphicon-fire"></span> 餐点热度--%>
-<%--							</a></li>--%>
+
 						</ul>
 					</div>
 				</div>

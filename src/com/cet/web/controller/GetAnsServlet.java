@@ -67,7 +67,7 @@ public class GetAnsServlet extends HttpServlet {
 
 		// 将 answerList 设置到请求作用域中
 		request.setAttribute("answerList", answerList);
-		request.getRequestDispatcher("/pages/admin/manage-users2.jsp").forward(request, response);
+		request.getRequestDispatcher("/pages/teacher/revise-page.jsp").forward(request, response);
 
 	}
 

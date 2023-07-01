@@ -101,7 +101,7 @@
 							class="glyphicon glyphicon-user"></span> 管理中心</a></li></c:if>
 				<c:if test="${not empty sessionScope.teacher}">
 					<li><a
-							href="${pageContext.request.contextPath}/pages/admin/manage-users2.jsp"><span
+							href="${pageContext.request.contextPath}/pages/teacher/revise-page.jsp"><span
 							class="glyphicon glyphicon-user"></span> 阅卷中心</a></li>
 				</c:if>
 

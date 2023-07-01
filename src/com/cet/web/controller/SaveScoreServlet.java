@@ -48,7 +48,7 @@ public class SaveScoreServlet extends HttpServlet {
 			e.printStackTrace();
 			throw new RuntimeException(e);
 		}
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/pages/admin/manage-users2.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/pages/teacher/revise-page.jsp");
 		dispatcher.forward(request, response);
 
 	}

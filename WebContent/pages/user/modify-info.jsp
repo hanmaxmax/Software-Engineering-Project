@@ -52,10 +52,6 @@
 								</a>
 							</li>
 							<li class="nav-divider"></li>
-<%--							<li><a--%>
-<%--								href="${pageContext.request.contextPath}/pages/user/history-orders.jsp">--%>
-<%--									<span class="glyphicon glyphicon-list-alt"></span> 历史订单--%>
-<%--							</a></li>--%>
 						</ul>
 					</div>
 				</div>
