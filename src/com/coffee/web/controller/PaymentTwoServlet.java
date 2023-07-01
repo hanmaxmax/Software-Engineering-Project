@@ -35,7 +35,7 @@ public class PaymentTwoServlet extends HttpServlet {
             if(re.getPaymentstatus()==0){
                 request.setAttribute("paymentSuccess", "支付跳转！！");
                 request.getSession().setAttribute("registration",re);
-                response.sendRedirect("/payment.jsp");
+                request.getRequestDispatcher("/payment.jsp").forward(request, response);
             }
             else {
                 request.setAttribute("paymentError", "重复缴费！！");

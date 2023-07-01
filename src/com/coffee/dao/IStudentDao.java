@@ -1,6 +1,8 @@
 package com.coffee.dao;
 
 import com.coffee.domain.Registration;
+import com.coffee.domain.Score;
+
 import java.sql.SQLException;
 import java.util.List;
 
@@ -25,5 +27,5 @@ public interface IStudentDao {
 
     void payforreg(Registration re) throws SQLException;
 
-
+    Score findscore(int userId) throws SQLException;
 }

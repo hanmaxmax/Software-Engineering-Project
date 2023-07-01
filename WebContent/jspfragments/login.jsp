@@ -37,6 +37,10 @@
 					<a class="btn custom-btn custom-border-btn" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample">登录</a>
 				</div>
 
+				<div class="modal-title">
+					<h1 class="text-center">登录</h1>
+				</div>
+
 				<!-- 登录表单 -->
 				<div class="modal-body">
 					<form class="form-group"
@@ -66,8 +70,8 @@
 							<label class="btn btn-default active"> <input
 								name="status" value="user" type="radio" checked>学生用户
 							</label>
-							<label class="btn btn-default"> <input name="status"
-								value="admin" type="radio"> 教师
+							<label class="btn btn-default">
+								<input name="status" value="admin" type="radio"> 教师
 							</label>
 							<label class="btn btn-default">
 								<input name="status" value="admin" type="radio"> 管理员

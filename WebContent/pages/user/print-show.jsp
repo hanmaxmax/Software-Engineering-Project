@@ -41,14 +41,23 @@
                         <tr>
                             <th scope="row" class="text-start">准考证号</th>
                             <td>
-                                190
+                                ${sessionScope.registration.examid}
                             </td>
                         </tr>
 
                         <tr>
                             <th scope="row" class="text-start">考试时间</th>
                             <td>
-                                50
+                                <script>
+                                    var identificationId = "${sessionScope.registration.examtime}";
+                                    var output = "";
+                                    if (identificationId == 202312) {
+                                        output = "2023-12-1 8:30";
+                                    } else {
+                                        output = "其他";
+                                    }
+                                    document.write(output);
+                                </script>
                             </td>
 
                         </tr>
@@ -56,14 +65,29 @@
                         <tr>
                             <th scope="row" class="text-start">考试地点</th>
                             <td>
-                                50
+                                <script>
+                                    var identificationId = "${sessionScope.registration.examposition}";
+                                    var output = "";
+                                    if (identificationId === "0") {
+                                        output = "南开大学八里台校区";
+                                    } else if (identificationId === "1") {
+                                        output = "南开大学津南校区";
+                                    } else if (identificationId === "2") {
+                                        output = "天津大学卫津路校区";
+                                    } else if (identificationId === "3") {
+                                        output = "天津大学北洋园校区";
+                                    } else {
+                                        output = "其他";
+                                    }
+                                    document.write(output);
+                                </script>
                             </td>
 
                         </tr>
                         <tr>
                             <th scope="row" class="text-start">考场</th>
                             <td>
-                                450
+                                教学楼 B座-337
                             </td>
                         </tr>
                         </tbody>
@@ -72,7 +96,10 @@
             </div>
 
             <div class="col-lg-12 col-6 text-center">
-                <h2><span> 准考证 </span> </h2>
+                <h2><span> 注意事项 </span> </h2>
+                1.携带身份证、学生证、准考证、2B铅笔、橡皮、黑色中性笔
+                <br/>
+                2.按时到场，开考30分钟后不允许进入
             </div>
 
             <br/> <br/>

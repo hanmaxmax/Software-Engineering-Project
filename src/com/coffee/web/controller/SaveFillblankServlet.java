@@ -47,7 +47,7 @@ public class SaveFillblankServlet extends HttpServlet {
         formBean.setQuestion4(Integer.parseInt(request.getParameter("RadioGroup4")));
         formBean.setQuestion5(Integer.parseInt(request.getParameter("RadioGroup5")));
 
-        saveFiveRadioAnswer(request, response, formBean, 1);
+        saveFiveRadioAnswer(request, response, formBean, 26);
 
         formBean.setQuestion1(Integer.parseInt(request.getParameter("RadioGroup6")));
         formBean.setQuestion2(Integer.parseInt(request.getParameter("RadioGroup7")));
@@ -55,7 +55,7 @@ public class SaveFillblankServlet extends HttpServlet {
         formBean.setQuestion4(Integer.parseInt(request.getParameter("RadioGroup9")));
         formBean.setQuestion5(Integer.parseInt(request.getParameter("RadioGroup10")));
 
-        saveFiveRadioAnswer(request, response, formBean,6);
+        saveFiveRadioAnswer(request, response, formBean,31);
 
         System.out.println("formBean: "+formBean.toString());
         response.sendRedirect("/questions.jsp");

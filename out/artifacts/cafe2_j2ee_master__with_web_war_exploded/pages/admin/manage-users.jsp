@@ -62,10 +62,7 @@
 								href="${pageContext.request.contextPath}/pages/admin/manage-users.jsp">
 									<span class="glyphicon glyphicon-user"></span> 管理用户
 							</a></li>
-							<li><a
-								href="${pageContext.request.contextPath}/pages/admin/manage-items.jsp"><span
-									class="glyphicon glyphicon glyphicon-leaf"></span> 管理题库</a></li>
-							<li class="nav-divider"></li>
+
 <%--							<li><a--%>
 <%--								href="${pageContext.request.contextPath}/pages/admin/history-orders.jsp">--%>
 <%--									<span class="glyphicon glyphicon-list-alt"></span> 历史订单--%>

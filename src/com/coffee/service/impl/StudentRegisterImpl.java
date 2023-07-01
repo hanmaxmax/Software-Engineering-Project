@@ -10,6 +10,7 @@ import java.util.List;
 import com.coffee.dao.IStudentDao;
 import com.coffee.dao.impl.StudentDao;
 import com.coffee.domain.Registration;
+import com.coffee.domain.Score;
 import com.coffee.domain.User;
 import com.coffee.exception.UserExistException;
 import com.coffee.service.IStudentService;
@@ -61,7 +62,6 @@ public class StudentRegisterImpl implements IStudentService {
             s+="0000000000";
             e.printStackTrace();
         }
-        //System.out.println(s);
         re.setExamid(s);
         studentDao.pay(re);
     }
@@ -76,6 +76,12 @@ public class StudentRegisterImpl implements IStudentService {
     public Registration payforreg(int regid) throws Exception {
         Registration re=studentDao.findregid(regid);
         return re;
+    }
+
+    @Override
+    public Score getscore(int userId) throws Exception {
+        Score score=studentDao.findscore(userId);
+        return score;
     }
 
 }

@@ -1,6 +1,3 @@
-<%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
-
-<%@ page import="java.io.FileReader" %>
 <%@ page import="org.json.JSONObject" %>
 <%@ page import="java.io.FileInputStream" %>
 <%@ page import="java.io.InputStreamReader" %><%
@@ -28,7 +25,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Online CET6 Exam System</title>
+    <title>Online CET-6</title>
 
     <!-- CSS FILES -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -92,11 +89,11 @@
         <div class="container">
             <div class="row">
 
-                <div id="countdown">02:00:00</div>
+                <div id="countdown">00:15:00</div>
 
                 <script>
                     var countdownElement = document.getElementById('countdown');
-                    var totalTime = 2*60*60; // ����Сʱ��������
+                    var totalTime = 15*60; // ����Сʱ��������
 
                     function updateCountdown() {
                         var hours = Math.floor(totalTime / 3600);

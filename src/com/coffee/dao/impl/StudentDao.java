@@ -3,6 +3,7 @@ package com.coffee.dao.impl;
 import com.coffee.dao.IStudentDao;
 import com.coffee.domain.Order;
 import com.coffee.domain.Registration;
+import com.coffee.domain.Score;
 import com.coffee.domain.User;
 import com.coffee.util.ConnectionContext;
 import org.apache.commons.dbutils.*;
@@ -87,5 +88,16 @@ public class StudentDao implements IStudentDao {
         String sql = "update `registration` set payment_status = '1' , exam_id =? where reg_id =?";
         Object[] params = {re.getExamid(),re.getRegid()};
         runner.update(ConnectionContext.getInstance().getConnection(), sql, params);
+    }
+
+    @Override
+    public Score findscore(int userId) throws SQLException {
+        QueryRunner qr = new QueryRunner();
+        BeanProcessor bean = new GenerousBeanProcessor();
+        RowProcessor processor = new BasicRowProcessor(bean);
+        String sql = "select * from `score` where userid=?";
+
+        return (Score) qr.query(ConnectionContext.getInstance().getConnection(), sql, userId,
+                new BeanHandler<Score>(Score.class, processor));
     }
 }

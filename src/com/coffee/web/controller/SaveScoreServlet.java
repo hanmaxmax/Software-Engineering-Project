@@ -19,7 +19,7 @@ public class SaveScoreServlet extends HttpServlet {
 
 
 		System.out.println("------------SaveScoreServlet start-----------");
-		String url="jdbc:mysql://localhost:3306/cafe?serverTimezone=Asia/Shanghai&characterEncoding=utf-8&useSSL=false&allowPublicKeyRetrieval=true";
+		String url="jdbc:mysql://localhost:3306/cet?serverTimezone=Asia/Shanghai&characterEncoding=utf-8&useSSL=false&allowPublicKeyRetrieval=true";
 
 		String username = "root";
 		String password = "123456";

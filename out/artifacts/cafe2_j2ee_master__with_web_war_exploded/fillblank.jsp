@@ -1,4 +1,3 @@
-<%@ page import="java.io.FileReader" %>
 <%@ page import="org.json.JSONObject" %>
 <%@ page import="static java.awt.SystemColor.window" %>
 <%@ page import="java.io.FileInputStream" %>
@@ -56,7 +55,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Online CET6 Exam System</title>
+    <title>Online CET-6</title>
 
     <!-- CSS FILES -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -193,11 +192,11 @@
 
             <div class="right">
 
-                <div id="countdown">02:00:00</div>
+                <div id="countdown">00:15:00</div>
 
                 <script>
                     var countdownElement = document.getElementById('countdown');
-                    var totalTime = 2*60*60; // 两个小时的总秒数
+                    var totalTime = 15*60; // 两个小时的总秒数
 
                     function updateCountdown() {
                         var hours = Math.floor(totalTime / 3600);

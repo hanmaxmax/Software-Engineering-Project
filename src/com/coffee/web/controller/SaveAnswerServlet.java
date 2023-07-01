@@ -82,8 +82,10 @@ public class SaveAnswerServlet extends HttpServlet {
     private void saveFiveRadioAnswer(HttpServletRequest request, HttpServletResponse response, FiveRadioAnswerFormBean formBean)
             throws ServletException, IOException {
         try {
+            User user=new User();
+            request.getSession().setAttribute("user", user);
             SaverService.save(formBean.getQuestion1(), formBean.getQuestion2(), formBean.getQuestion3(),
-                    formBean.getQuestion4(), formBean.getQuestion5(), 47);
+                    formBean.getQuestion4(), formBean.getQuestion5(), 47,user.getUserId(),1);
             System.out.println("Success save 5 radio answer");
             System.out.println(formBean.toString());
         } catch (SQLException e) {
@@ -94,7 +96,7 @@ public class SaveAnswerServlet extends HttpServlet {
 //            return false;
 //        } else {
 //            // 成功登录
-//            request.getSession().setAttribute("user", user);
+//
 //            System.out.println("--------User login succeed-----------");
 //            return true;
 //        }

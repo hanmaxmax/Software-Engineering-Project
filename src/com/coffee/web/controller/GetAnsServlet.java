@@ -26,7 +26,7 @@ public class GetAnsServlet extends HttpServlet {
 		List<TextAnswer> answerList = new ArrayList<>();
 
 		System.out.println("------------GetAnsServlet work start-----------");
-		String url="jdbc:mysql://localhost:3306/cafe?serverTimezone=Asia/Shanghai&characterEncoding=utf-8&useSSL=false&allowPublicKeyRetrieval=true";
+		String url="jdbc:mysql://localhost:3306/cet?serverTimezone=Asia/Shanghai&characterEncoding=utf-8&useSSL=false&allowPublicKeyRetrieval=true";
 
 		String username = "root";
 		String password = "123456";

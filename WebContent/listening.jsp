@@ -1,4 +1,4 @@
-<%@ page import="java.io.FileReader" %>
+
 <%@ page import="org.json.JSONObject" %>
 <%@ page import="static java.awt.SystemColor.window" %>
 <%@ page import="java.io.FileInputStream" %>
@@ -84,7 +84,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Online CET6 Exam System</title>
+    <title>Online CET-6</title>
 
     <!-- CSS FILES -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -128,7 +128,7 @@
             scrollbar-color: gray;
             scrollbar-track-color: lightgray;
             padding: 10px;
-            background-color: rgba(255, 250, 240, 1); /* Ìí¼ÓÕâÒ»ĞĞÀ´ÉèÖÃ±³¾°É« */
+            background-color: rgba(255, 250, 240, 1); /* æ·»åŠ è¿™ä¸€è¡Œæ¥è®¾ç½®èƒŒæ™¯è‰² */
         }
 
 
@@ -141,7 +141,7 @@
             right: 10px;
         }
 
-        /* Ìí¼ÓÒ»Ğ©ÑùÊ½ÒÔÄ£ÄâÒ³Ãæ¹ö¶¯ */
+        /* æ·»åŠ ä¸€äº›æ ·å¼ä»¥æ¨¡æ‹Ÿé¡µé¢æ»šåŠ¨ */
         body {
             height: 2000px;
         }
@@ -154,8 +154,6 @@
     <script>
         function showConfirmation() {
             window.alert( "The exam ends!");
-            // ÓÃ»§µã»÷ÁËÈ·ÈÏ
-            // Ìø×ªµ½index.jspÒ³Ãæ
             window.location.href = "index.jsp";
         }
     </script>
@@ -245,16 +243,13 @@
             </div>
 
 
-
-
-
             <div class="right">
 
-                <div id="countdown">02:00:00</div>
+                <div id="countdown">00:30:00</div>
 
                 <script>
                     var countdownElement = document.getElementById('countdown');
-                    var totalTime = 2*60*60; // Á½¸öĞ¡Ê±µÄ×ÜÃëÊı
+                    var totalTime = 30*60; // ï¿½ï¿½ï¿½ï¿½Ğ¡Ê±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
                     function updateCountdown() {
                         var hours = Math.floor(totalTime / 3600);
@@ -289,7 +284,7 @@
                             <p>&nbsp;</p>
                             <%@ page contentType="text/html;charset=gb2312" %>
                             <script language="javascript">
-                                function on_submit()  // ÑéÖ¤Êı¾İµÄºÏ·¨ĞÔ
+                                function on_submit()  // éªŒè¯æ•°æ®çš„åˆæ³•æ€§
                                 {
 
                                     return true;
@@ -297,7 +292,7 @@
                             </script>
 
 
-                            <form method="POST" action="${pageContext.request.contextPath}/servlet/SaveListeningAnswerServlet" name="form1" ¦Ïnsubmit="return on_submit()">
+                            <form method="POST" action="${pageContext.request.contextPath}/servlet/SaveListeningAnswerServlet" name="form1" Î¿nsubmit="return on_submit()">
 
                                 <p>
                                     1.<label>

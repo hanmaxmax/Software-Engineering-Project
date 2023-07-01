@@ -1,6 +1,7 @@
 package com.coffee.service;
 
 import com.coffee.domain.Registration;
+import com.coffee.domain.Score;
 import com.coffee.exception.UserExistException;
 
 import java.sql.SQLException;
@@ -48,4 +49,11 @@ public interface IStudentService{
 	 * @throws Exception
 	 */
 	Registration payforreg(int re) throws Exception;
+
+	/**
+	 * 查找得分信息
+	 * @param userId
+	 * @throws Exception
+	 */
+	Score getscore(int userId) throws Exception;
 }

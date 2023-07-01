@@ -25,7 +25,7 @@
         <meta name="description" content="">
         <meta name="author" content="">
 
-        <title>Online CET6 Exam System</title>
+        <title>Online CET-6</title>
 
 
         <!-- CSS FILES -->
@@ -50,8 +50,6 @@
                 top: 10px;
                 right: 10px;
             }
-
-            /* ����һЩ��ʽ��ģ��ҳ����� */
             body {
                 height: 2000px;
             }
@@ -64,8 +62,6 @@
         <script>
             function showConfirmation() {
                 window.alert( "The exam ends!");
-                // �û������ȷ��
-                // ��ת��index.jspҳ��
                 window.location.href = "index.jsp";
             }
         </script>
@@ -90,7 +86,7 @@
                 <div class="container">
                     <div class="row">
 
-                        <div id="countdown">02:00:00</div>
+                        <div id="countdown">00:20:00</div>
 
                         <script>
                             var countdownElement = document.getElementById('countdown');

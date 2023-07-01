@@ -1,3 +1,7 @@
+<%@ page import="com.coffee.domain.Score" %>
+<%@ page import="com.coffee.service.IStudentService" %>
+<%@ page import="com.coffee.service.impl.StudentRegisterImpl" %>
+<%@ page import="com.coffee.domain.User" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -7,14 +11,60 @@
   <link href="//fonts.googleapis.com/css2?family=Jost:wght@300;400;600;700&display=swap" rel="stylesheet">
 
   <title>英语六级考试报考系统</title>
+  <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
   <style type="text/css">
     <jsp:directive.include file="/css/templatemo-tiya-golf-club.css" />
     <jsp:directive.include file="/css/bootstrap-icons.css" />
   </style>
+  <jsp:useBean id="getScoreServlet" class="com.coffee.web.controller.GetScoreServlet" />
+
 </head>
+
 <body>
+<%
+  request.setAttribute("forwardUrl", "/result.jsp");
+%>
+<!-- 请求getRegPagesServlet -->
+<c:if test="${empty requestScope.ScoreItem}">
+  <%
+      IStudentService studentService = new StudentRegisterImpl();
+      User user = (User) request.getSession().getAttribute("user");
+      int userid = user.getUserId();
+      Score score = studentService.getscore(user.getUserId());
+      request.setAttribute("ScoreItem", score);
+      //System.out.println(score);
+      if(score==null){
+        request.setAttribute("ScoreError", "尚未有考试记录！！");
+      } else if(score.getTransition().equals("-1.0")||score.getComposition().equals("-1.0")){
+        request.setAttribute("ScoreNotEnding", "尚未出分！！！");
+      } else {
+        double total=Double.parseDouble(score.getListening())+Double.parseDouble(score.getReading())+Double.parseDouble(score.getTransition())+Double.parseDouble(score.getComposition());
+        String stringtotal = Double.toString(total);
+        request.setAttribute("ScoreTotal", stringtotal);
+      }
+
+  %>
+</c:if>
+
 <!-- 网页头部 -->
 <jsp:include page="/jspfragments/header.jsp" />
+
+
+<c:if test="${not empty requestScope.ScoreError}">
+  <br/><br/><br/><br/>
+  <div class="col-lg-12 col-12 text-center mx-auto mb-lg-5 mb-4">
+    <h2><span>尚未有考试记录</span></h2>
+  </div>
+</c:if>
+
+<c:if test="${not empty requestScope.ScoreNotEnding}">
+  <br/><br/><br/><br/>
+  <div class="col-lg-12 col-12 text-center mx-auto mb-lg-5 mb-4">
+    <h2><span>尚未出分</span></h2>
+  </div>
+</c:if>
+
+<c:if test="${empty requestScope.ScoreError and empty requestScope.ScoreNotEnding}">
 <section class="membership-section section-padding" id="section_3">
   <div class="container">
     <div class="row">
@@ -42,11 +92,11 @@
               <th scope="row" class="text-start">听力题</th>
 
               <td>
-                160
+                160.0
               </td>
 
               <td>
-                200
+                ${requestScope.ScoreItem.listening}
               </td>
 
             </tr>
@@ -55,11 +105,11 @@
               <th scope="row" class="text-start">阅读题</th>
 
               <td>
-                190
+                140.0
               </td>
 
               <td>
-                240
+                ${requestScope.ScoreItem.reading}
               </td>
 
             </tr>
@@ -68,11 +118,11 @@
               <th scope="row" class="text-start">翻译题</th>
 
               <td>
-                50
+                50.0
               </td>
 
               <td>
-                80
+                ${requestScope.ScoreItem.transition}
               </td>
 
             </tr>
@@ -81,22 +131,22 @@
               <th scope="row" class="text-start">作文题</th>
 
               <td>
-                50
+                50.0
               </td>
 
               <td>
-                90
+                ${requestScope.ScoreItem.composition}
               </td>
             </tr>
             <tr>
               <th scope="row" class="text-start">总分</th>
 
               <td>
-                450
+                400
               </td>
 
               <td>
-                610
+                  ${requestScope.ScoreTotal}
               </td>
             </tr>
             </tbody>
@@ -106,10 +156,7 @@
       <div class="col-lg-6 col-12 order-3 order-lg-0" align="center">
         <div class="custom-block-info mt-2 mt-lg-0">
           <h4 >您的总分为</h4>
-          <h1 fontcolor="blue">610</h1>
-
-
-
+          <h1 fontcolor="blue">${requestScope.ScoreTotal}</h1>
 
 
           </div>
@@ -118,6 +165,7 @@
   </div>
   </div>
 </section>
+</c:if>
 
 <div
         style="background: url(${pageContext.request.contextPath}/WebContent/images/index/background3.png)">

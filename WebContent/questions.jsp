@@ -12,40 +12,41 @@
 
   <style type="text/css">
     <jsp:directive.include file="css/templatemo-tiya-golf-club.css" />
+
+    #countdown {
+      font-size: 24px;
+      font-weight: bold;
+      text-align: center;
+      position: fixed;
+      top: 10px;
+      right: 10px;
+    }
+
+    body {
+      height: 2000px;
+    }
+    h1 {
+      margin-top: 50px;
+    }
+
   </style>
+
+  <script>
+    function showConfirmation() {
+      window.alert( "The exam ends!");
+      window.location.href = "index.jsp";
+    }
+  </script>
 </head>
 <body>
+
+
 <%
   request.setAttribute("forwardUrl", "/index.jsp"); //map
 %>
 
 <!-- 网页头部 -->
 <jsp:include page="/jspfragments/header.jsp" />
-
-
-
-<%--<c:if test="${empty sessionScope.user and empty sessionScope.admin}">--%>
-<%--<c:choose>--%>
-<%--  <c:when test="${empty sessionScope.user and empty sessionScope.admin}">--%>
-
-<%--  <center>--%>
-<%--    <font size="50" style="width: 50%"><strong>如需购买，请先登录</strong></font><br />--%>
-<%--    <button type="submit" class="btn btn-info navbar-btn"--%>
-<%--            data-toggle="modal" data-target="#login" style="width: 50%">--%>
-<%--&lt;%&ndash;  User myuser = ${sessionScope.user};&ndash;%&gt;--%>
-<%--  <%--%>
-<%--    System.out.println("进入sessionScope.user is empty 分支");--%>
-<%--//    System.out.println(myuser);--%>
-<%--  %>--%>
-<%--      <span class="glyphicon glyphicon-log-in"></span>&nbsp;登&nbsp;&nbsp;录--%>
-<%--    </button>--%>
-<%--  </center>--%>
-<%--&lt;%&ndash;</c:if>&ndash;%&gt;--%>
-<%--  </c:when>--%>
-<%--  <c:otherwise>--%>
-
-<%--<c:if test="${not empty sessionScope.user or not empty sessionScope.admin}">--%>
-
 
 <c:if test="${empty sessionScope.user}">
 
@@ -72,10 +73,8 @@
 
 
 <c:if test="${not empty sessionScope.user}">
-<%--  <%--%>
-<%--      --%>
-<%--    System.out.println(${sessionScope.user.userI});--%>
-<%--  %>--%>
+
+
   <section class="events-section section-bg section-padding" id="section_4">
 
   <div class="container">
@@ -85,22 +84,9 @@
         <h2 class="mb-lg-3">题目列表</h2>
       </div>
 
-
-
-
-
-
-
-
-
-
-
-
-
       <div class="row custom-block mb-3">
         <div class="col-lg-2 col-md-4 col-12 order-2 order-md-0 order-lg-0">
           <div class="custom-block-date-wrap d-flex d-lg-block d-md-block align-items-center mt-3 mt-lg-0 mt-md-0">
-<%--            <h8 class="custom-block-date mb-lg-1 mb-0 me-3 me-lg-0 me-md-0">Listening</h8>--%>
             <strong  class="custom-block-date mb-lg-1 mb-0 me-3 me-lg-0 me-md-0" style="font-size: 25px;">Listening</strong >
 
 
@@ -120,9 +106,6 @@
                   <span class="custom-block-span">类型:</span>
 
                   <p class="mb-0">单项选择</p>
-  <%
-    System.out.println("进入sessionScope.user is not empty 分支");
-  %>
                 </div>
 
                 <div class="d-flex flex-wrap align-items-center">
@@ -170,8 +153,6 @@
         <div class="col-lg-6 col-12 order-3 order-lg-0">
           <div class="custom-block-info mt-2 mt-lg-0">
             <a href="fillblank.jsp" class="events-title mb-3">选词填空</a>
-<%--            <a href="listening.jsp" class="events-title mb-3">Group tournament activities</a>--%>
-<%--                <a href="fillblank.jsp" class="events-title mb-3">Group tournament activities222</a>--%>
             <p class="mb-0">In this section, there is a passage with ten blanks. You are required to select one word for each blank from a list of choices given in a word bank following the passage. Read the passage through carefully before making your choices. Each choice in the bank is identified by a letter. Please mark the corresponding letter for each item on Answer Sheet 2 with a single line through the centre. You may not use any of the words in the bank more than once.</p>
             <div class="d-flex flex-wrap border-top mt-4 pt-3">
 
@@ -191,28 +172,11 @@
 
               <div class="d-flex align-items-center ms-lg-auto">
                 <a href="fillblank.jsp" class="btn custom-btn">开始练习</a>
-<%--                <a href="listening.jsp" class="btn custom-btn">开始练习</a>--%>
-<%--                <a href="fillblank.jsp" class="btn custom-btn">开始练习</a>--%>
               </div>
             </div>
           </div>
         </div>
       </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
       <div class="row custom-block mb-3">
@@ -272,8 +236,6 @@
         <div class="col-lg-6 col-12 order-3 order-lg-0">
           <div class="custom-block-info mt-2 mt-lg-0">
             <a href="readCompC1.jsp" class="events-title mb-3">阅读题SectionC 第一篇</a>
-              <%--            <a href="listening.jsp" class="events-title mb-3">Group tournament activities</a>--%>
-              <%--                <a href="fillblank.jsp" class="events-title mb-3">Group tournament activities222</a>--%>
             <p class="mb-0">Directions: There are 2 passages in this section. Each passage is followed by some questions or unfinished statements. For each of them there are four choices marked A), B), C) and D). You should decide on the best choice and mark the corresponding letter on Answer Sheet 2 with a single line through the centre. Passage One: Questions 46 to 50 are based on the following passage.</p>
             <div class="d-flex flex-wrap border-top mt-4 pt-3">
 
@@ -283,56 +245,15 @@
 
                   <p class="mb-0">选词填空</p>
                 </div>
-
-<%--                <div class="d-flex flex-wrap align-items-center">--%>
-<%--                  <span class="custom-block-span">分数占比:</span>--%>
-
-<%--                  <p class="mb-0">5%</p>--%>
-<%--                </div>--%>
               </div>
 
               <div class="d-flex align-items-center ms-lg-auto">
                 <a href="readCompC1.jsp" class="btn custom-btn">开始练习</a>
-                  <%--                <a href="listening.jsp" class="btn custom-btn">开始练习</a>--%>
-                  <%--                <a href="fillblank.jsp" class="btn custom-btn">开始练习</a>--%>
               </div>
             </div>
           </div>
         </div>
       </div>
-<%--      --%>
-<%--      <div class="col-lg-6 col-12 order-3 order-lg-0">--%>
-<%--        <div class="custom-block-info mt-2 mt-lg-0">--%>
-<%--          <a href="readCompC1.jsp" class="events-title mb-3">阅读题SectionC 第一篇</a>--%>
-<%--            &lt;%&ndash;            <a href="listening.jsp" class="events-title mb-3">Group tournament activities</a>&ndash;%&gt;--%>
-<%--            &lt;%&ndash;                <a href="fillblank.jsp" class="events-title mb-3">Group tournament activities222</a>&ndash;%&gt;--%>
-<%--          <p class="mb-0">For this part, you are allowed 30 minutes to translate a passage from Chinese into English. You should write your answer on Answer Sheet 2.</p>--%>
-
-<%--          <div class="d-flex flex-wrap border-top mt-4 pt-3">--%>
-
-<%--            <div class="mb-4 mb-lg-0">--%>
-<%--              <div class="d-flex flex-wrap align-items-center mb-1">--%>
-<%--                <span class="custom-block-span">类型:</span>--%>
-
-<%--                <p class="mb-0">主观题</p>--%>
-<%--              </div>--%>
-
-<%--              <div class="d-flex flex-wrap align-items-center">--%>
-<%--                <span class="custom-block-span">正确率:</span>--%>
-
-<%--                <p class="mb-0">15%</p>--%>
-<%--              </div>--%>
-<%--            </div>--%>
-
-<%--            <div class="d-flex align-items-center ms-lg-auto">--%>
-<%--              <a href="readCompC1.jsp" class="btn custom-btn">开始练习</a>--%>
-<%--                &lt;%&ndash;                <a href="listening.jsp" class="btn custom-btn">开始练习</a>&ndash;%&gt;--%>
-<%--                &lt;%&ndash;                <a href="fillblank.jsp" class="btn custom-btn">开始练习</a>&ndash;%&gt;--%>
-<%--            </div>--%>
-<%--          </div>--%>
-<%--        </div>--%>
-<%--      </div>--%>
-<%--    </div>--%>
 
 
 
@@ -405,8 +326,6 @@
         <div class="col-lg-6 col-12 order-3 order-lg-0">
           <div class="custom-block-info mt-2 mt-lg-0">
             <a href="translation.jsp" class="events-title mb-3">翻译题</a>
-              <%--            <a href="listening.jsp" class="events-title mb-3">Group tournament activities</a>--%>
-              <%--                <a href="fillblank.jsp" class="events-title mb-3">Group tournament activities222</a>--%>
             <p class="mb-0">For this part, you are allowed 30 minutes to translate a passage from Chinese into English. You should write your answer on Answer Sheet 2.</p>
 
             <div class="d-flex flex-wrap border-top mt-4 pt-3">
@@ -427,25 +346,11 @@
 
               <div class="d-flex align-items-center ms-lg-auto">
                 <a href="translation.jsp" class="btn custom-btn">开始练习</a>
-                  <%--                <a href="listening.jsp" class="btn custom-btn">开始练习</a>--%>
-                  <%--                <a href="fillblank.jsp" class="btn custom-btn">开始练习</a>--%>
               </div>
             </div>
           </div>
         </div>
       </div>
-
-
-
-
-
-
-
-
-
-
-
-
 
       <div class="row custom-block mb-3">
         <div class="col-lg-2 col-md-4 col-12 order-2 order-md-0 order-lg-0">
