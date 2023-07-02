@@ -8,8 +8,8 @@
 
     <title>英语六级考试报考系统</title>
     <style type="text/css">
-        <jsp:directive.include file="/css/templatemo-tiya-golf-club.css" />
-        <jsp:directive.include file="/css/bootstrap-icons.css" />
+        <jsp:directive.include file="/assets/css/templatemo-tiya-golf-club.css" />
+        <jsp:directive.include file="/assets/css/bootstrap-icons.css" />
     </style>
 </head>
 <body>

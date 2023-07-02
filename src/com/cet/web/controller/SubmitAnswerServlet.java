@@ -1,9 +1,6 @@
 package com.cet.web.controller;
-//<%@ page import="com.cet.service.IAutoMarkingService" %>
-//<%@ page import="com.cet.service.impl.AutoMarkingServiceImpl"%>
 import com.cet.domain.User;
 import com.cet.service.impl.AutoMarkingServiceImpl;
-import com.cet.service.IAutoMarkingService;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -11,6 +8,12 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+
+/**
+ * 提交答案
+ * 20230628
+ * @author zjy
+ */
 
 @WebServlet(name = "SubmitAnswerServlet", urlPatterns = "/servlet/SubmitAnswerServlet")
 public class SubmitAnswerServlet extends HttpServlet {

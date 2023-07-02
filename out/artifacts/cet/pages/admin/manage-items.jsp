@@ -21,12 +21,6 @@
 	<!-- 网页头部 -->
 	<jsp:include page="/jspfragments/header.jsp" />
 
-	<!-- 增删改弹框引入 -->
-	<jsp:include page="/jspfragments/item/add-item.jsp" />
-	<jsp:include page="/jspfragments/item/add-image.jsp" />
-	<jsp:include page="/jspfragments/item/modify.jsp" />
-	<jsp:include page="/jspfragments/item/delete.jsp" />
- 
 	<!-- 网页正文 -->
 	<br/><br /><br/><br />
 

@@ -2,13 +2,8 @@
 <%@ page import="org.json.JSONObject" %>
 <%@ page import="java.io.InputStreamReader" %>
 <%@ page import="java.io.FileInputStream" %><%
-    //    String json = (String)pageContext.getAttribute("dataJson");
-//    pageContext.setAttribute("parsedJSON", org.apache.commons.json.JSON.parse(json));
-//    System.out.println("json!!!!! = "+json);
-//                        StringBuilder stringBuilder = new StringBuilder();
-//                        int numRead;
-//                        while((numRead = fileReader.read(buffer)))
-    String filePath = "D:\\IDEA\\cafe2-j2ee-master -with-web\\cafe2-j2ee-master -with-web\\WebContent\\applicant.json";
+
+    String filePath = "D:\\IDEA\\cafe2-j2ee-master -with-web\\Software-Engineering-Project\\WebContent\\Exam\\applicant.json";
 //    FileReader fileReader = new FileReader(filePath, "UTF-8");
     InputStreamReader fileReader =new InputStreamReader(new FileInputStream(filePath),"UTF-8");
 
@@ -90,11 +85,11 @@
 
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
 
-    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../assets/css/bootstrap.min.css" rel="stylesheet">
 
-    <link href="../css/bootstrap-icons.css" rel="stylesheet">
+    <link href="../assets/css/bootstrap-icons.css" rel="stylesheet">
 
-    <link href="../css/index.css" rel="stylesheet">
+    <link href="../assets/css/index.css" rel="stylesheet">
 
     <style>
         .center-text {

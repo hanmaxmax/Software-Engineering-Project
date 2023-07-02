@@ -1,7 +1,7 @@
 <%@ page import="org.json.JSONObject" %>
 <%@ page import="java.io.FileInputStream" %>
 <%@ page import="java.io.InputStreamReader" %><%
-    String filePath = "D:\\IDEA\\cafe2-j2ee-master -with-web\\cafe2-j2ee-master -with-web\\WebContent\\applicant.json";
+    String filePath = "D:\\IDEA\\cafe2-j2ee-master -with-web\\Software-Engineering-Project\\WebContent\\Exam\\applicant.json";
 //    FileReader fileReader = new FileReader(filePath);
     InputStreamReader fileReader =new InputStreamReader(new FileInputStream(filePath),"UTF-8");
     char[] buffer = new char[1024];
@@ -34,11 +34,11 @@
 
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
 
-    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../assets/css/bootstrap.min.css" rel="stylesheet">
 
-    <link href="../css/bootstrap-icons.css" rel="stylesheet">
+    <link href="../assets/css/bootstrap-icons.css" rel="stylesheet">
 
-    <link href="../css/index.css" rel="stylesheet">
+    <link href="../assets/css/index.css" rel="stylesheet">
 
     <style>
         #countdown {

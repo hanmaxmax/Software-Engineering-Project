@@ -13,6 +13,11 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 
+/**
+ * 获取考试成绩
+ * 20230625
+ * @author ggg
+ */
 public class GetScoreServlet extends HttpServlet {
     private IStudentService studentService = new StudentRegisterImpl();
 

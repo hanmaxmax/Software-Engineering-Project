@@ -9,7 +9,7 @@ import javax.servlet.http.*;
 /**
  * 登录操作，删除session信息，移除自动登录cookie
  * 
- * @author K
+ * @author ggg
  */
 @WebServlet(name = "LogoutServlet", urlPatterns = "/servlet/logoutServlet")
 public class LogoutServlet extends HttpServlet {

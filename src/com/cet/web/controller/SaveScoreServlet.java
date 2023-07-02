@@ -9,6 +9,11 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.sql.*;
 
+/**
+ * 分数保存
+ * 20230628
+ * @author zjy
+ */
 
 @WebServlet(name = "SaveScoreServlet", urlPatterns = "/servlet/saveScoreServlet")
 public class SaveScoreServlet extends HttpServlet {

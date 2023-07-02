@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * 封装修改商品信息表单
+ * 封装修改条目信息表单
  * 
  * @author K
  */

@@ -11,7 +11,7 @@
   <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
   <style type="text/css">
-    <jsp:directive.include file="../css/templatemo-tiya-golf-club.css" />
+    <jsp:directive.include file="/assets/css/templatemo-tiya-golf-club.css" />
 
     #countdown {
       font-size: 24px;
@@ -404,7 +404,7 @@
 
 </section>
 
-  <a href="${pageContext.request.contextPath}/../index.jsp">
+  <a href="${pageContext.request.contextPath}//index.jsp">
   <form action="${pageContext.request.contextPath}/servlet/SubmitAnswerServlet" method="post" >
     <center>
     <button class="btn btn-primary" type="submit" >确&nbsp;&nbsp;认&nbsp;提&nbsp;&nbsp;交

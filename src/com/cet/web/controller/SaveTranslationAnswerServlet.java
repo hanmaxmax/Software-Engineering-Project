@@ -24,6 +24,12 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+/**
+ * 答案比对
+ * 20230628
+ * @author zjy
+ */
+
 @WebServlet(name = "SaveTranslationAnswerServlet", urlPatterns = "/servlet/SaveTranslationAnswerServlet")
 public class SaveTranslationAnswerServlet extends HttpServlet {
     private ISaverWritingService SaverService = new SaverWritingServiceImpl();
@@ -39,7 +45,7 @@ public class SaveTranslationAnswerServlet extends HttpServlet {
         translationAnswerBean.setQuestion(request.getParameter("translation"));
         System.out.println("translationAnswerBean: "+translationAnswerBean.toString());
         saveTranslationAnswer(request, response, translationAnswerBean);
-        response.sendRedirect("/questions.jsp");
+        response.sendRedirect("/Exam/questions.jsp");
     }
 
     public String codeToString(String str)  // 处理中文字符串的函数

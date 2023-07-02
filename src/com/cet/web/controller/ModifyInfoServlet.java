@@ -23,9 +23,7 @@ import com.cet.web.formbean.ModifyInfoFormBean;
 /**
  * 修改user的个人信息，不包括密码
  * 
- * 原来是想将管理员修改和用户修改都统一到一个Servlet中处理
- * 
- * @author K
+ * @author ggg
  */
 @WebServlet(name = "ModifyInfoServlet", urlPatterns = "/servlet/modifyInfoServlet")
 public class ModifyInfoServlet extends HttpServlet {

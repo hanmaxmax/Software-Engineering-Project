@@ -22,7 +22,7 @@ import com.cet.web.formbean.*;
 /**
  * 用户注册
  * 
- * @author K
+ * @author ggg
  */
 @WebServlet(name = "RegisterServlet", urlPatterns = "/servlet/registerServlet")
 public class RegisterServlet extends HttpServlet {

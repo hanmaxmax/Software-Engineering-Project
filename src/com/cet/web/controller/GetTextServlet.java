@@ -10,7 +10,11 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-
+/**
+ * 获取文本
+ * 20230625
+ * @author zjy
+ */
 @WebServlet(name = "GetTextServlet", urlPatterns = "/servlet/getTextServlet")
 public class GetTextServlet extends HttpServlet {
 

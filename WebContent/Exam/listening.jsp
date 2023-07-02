@@ -1,19 +1,18 @@
-
 <%@ page import="org.json.JSONObject" %>
 <%@ page import="static java.awt.SystemColor.window" %>
 <%@ page import="java.io.FileInputStream" %>
 <%@ page import="java.io.InputStreamReader" %>
 <%
-    String filePath = "D:\\IDEA\\cafe2-j2ee-master -with-web\\cafe2-j2ee-master -with-web\\WebContent\\applicant.json";
+    String filePath = "D:\\IDEA\\cafe2-j2ee-master -with-web\\Software-Engineering-Project\\WebContent\\Exam\\applicant.json";
 //    FileReader fileReader = new FileReader(filePath);
-    InputStreamReader fileReader =new InputStreamReader(new FileInputStream(filePath),"UTF-8");
+    InputStreamReader fileReader = new InputStreamReader(new FileInputStream(filePath), "UTF-8");
     char[] buffer = new char[1024];
     StringBuilder stringBuilder = new StringBuilder();
     int numRead;
     while ((numRead = fileReader.read(buffer)) != -1) {
         stringBuilder.append(buffer, 0, numRead);
     }
-    System.out.println("jsonContent!!!"+stringBuilder.substring(0));
+    System.out.println("jsonContent!!!" + stringBuilder.substring(0));
     JSONObject jsonObject = new JSONObject(stringBuilder.substring(0));
     String lisA = jsonObject.getString("Listening Comprehension SectionA");
     String lisB = jsonObject.getString("Listening Comprehension SectionB");
@@ -21,57 +20,57 @@
     String[] lisAs = lisA.split("#");
     String[] lisBs = lisB.split("#");
     String[] lisCs = lisC.split("#");
-    String[] strb = new String[lisAs.length+lisBs.length+lisCs.length];
-    int strbptr=0;
-    for(String s : lisAs)
-    {
-        if(s.charAt(0)=='S') continue;
-        if(s.charAt(0)=='D') continue;
-        if(s.charAt(0)=='Q') continue;
-        strb[strbptr++]=s;
+    String[] strb = new String[lisAs.length + lisBs.length + lisCs.length];
+    int strbptr = 0;
+    for (String s : lisAs) {
+        if (s.charAt(0) == 'S') continue;
+        if (s.charAt(0) == 'D') continue;
+        if (s.charAt(0) == 'Q') continue;
+        strb[strbptr++] = s;
     }
-    for(String s : lisBs)
-    {
-        if(s.charAt(0)=='S') continue;
-        if(s.charAt(0)=='D') continue;
-        if(s.charAt(0)=='Q') continue;
-        strb[strbptr++]=s;
+    for (String s : lisBs) {
+        if (s.charAt(0) == 'S') continue;
+        if (s.charAt(0) == 'D') continue;
+        if (s.charAt(0) == 'Q') continue;
+        strb[strbptr++] = s;
     }
-    for(String s : lisCs)
-    {
-        if(s.charAt(0)=='S') continue;
-        if(s.charAt(0)=='D') continue;
-        if(s.charAt(0)=='Q') continue;
-        strb[strbptr++]=s;
+    for (String s : lisCs) {
+        if (s.charAt(0) == 'S') continue;
+        if (s.charAt(0) == 'D') continue;
+        if (s.charAt(0) == 'Q') continue;
+        strb[strbptr++] = s;
     }
     int i = 0;
-    for (String s:lisAs) {
+    for (String s : lisAs) {
         i++;
         System.out.println(i + s);
     }
     String[][] myarry = new String[25][5];
-    strbptr=0;
-    for(int i1=0;i1<25;i1++){
-        String tmp=strb[i1];
+    strbptr = 0;
+    for (int i1 = 0; i1 < 25; i1++) {
+        String tmp = strb[i1];
         String[] strs = tmp.split("\\)");
         String[] letter = new String[4];
-        letter[0] = "A"; letter[1] = "B"; letter[2] = "C"; letter[3] = "D";
-        myarry[i1][0]=strs[0].substring(0, strs[0].length() - 1);
-        for(int j1=1;j1<5;j1++){
+        letter[0] = "A";
+        letter[1] = "B";
+        letter[2] = "C";
+        letter[3] = "D";
+        myarry[i1][0] = strs[0].substring(0, strs[0].length() - 1);
+        for (int j1 = 1; j1 < 5; j1++) {
             StringBuilder sb = new StringBuilder(strs[j1]);
-            sb.insert(0, letter[j1-1]);
+            sb.insert(0, letter[j1 - 1]);
             sb.insert(1, ")");
             sb.delete(sb.length() - 1, sb.length());
-            myarry[i1][j1]=sb.toString();
+            myarry[i1][j1] = sb.toString();
         }
     }
-    String sectiona=lisAs[0];
-    String adirection=lisAs[1];
-    String sectionb=lisBs[0];
+    String sectiona = lisAs[0];
+    String adirection = lisAs[1];
+    String sectionb = lisBs[0];
 
-    String bdirection=lisBs[1];
-    String sectionc=lisCs[0];
-    String cdirection=lisCs[0];
+    String bdirection = lisBs[1];
+    String sectionc = lisCs[0];
+    String cdirection = lisCs[0];
     String addinfo = lisCs[8];
 %>
 <!doctype html>
@@ -91,14 +90,14 @@
 
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400&display=swap"
+          rel="stylesheet">
 
-    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../assets/css/bootstrap.min.css" rel="stylesheet">
 
-    <link href="../css/bootstrap-icons.css" rel="stylesheet">
+    <link href="../assets/css/bootstrap-icons.css" rel="stylesheet">
 
-    <link href="../css/index.css" rel="stylesheet">
-
+    <link href="../assets/css/index.css" rel="stylesheet">
 
 
     <style>
@@ -145,6 +144,7 @@
         body {
             height: 2000px;
         }
+
         h1 {
             margin-top: 50px;
         }
@@ -153,13 +153,11 @@
 
     <script>
         function showConfirmation() {
-            window.alert( "The exam ends!");
+            window.alert("The exam ends!");
             window.location.href = "index.jsp";
         }
     </script>
 </head>
-
-
 
 
 <body>
@@ -171,11 +169,40 @@
 
         <div class="section-overlay"></div>
 
-        <svg viewBox="0 0 1962 178" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path fill="#3D405B" d="M 0 114 C 118.5 114 118.5 167 237 167 L 237 167 L 237 0 L 0 0 Z" stroke-width="0"></path> <path fill="#3D405B" d="M 236 167 C 373 167 373 128 510 128 L 510 128 L 510 0 L 236 0 Z" stroke-width="0"></path> <path fill="#3D405B" d="M 509 128 C 607 128 607 153 705 153 L 705 153 L 705 0 L 509 0 Z" stroke-width="0"></path><path fill="#3D405B" d="M 704 153 C 812 153 812 113 920 113 L 920 113 L 920 0 L 704 0 Z" stroke-width="0"></path><path fill="#3D405B" d="M 919 113 C 1048.5 113 1048.5 148 1178 148 L 1178 148 L 1178 0 L 919 0 Z" stroke-width="0"></path><path fill="#3D405B" d="M 1177 148 C 1359.5 148 1359.5 129 1542 129 L 1542 129 L 1542 0 L 1177 0 Z" stroke-width="0"></path><path fill="#3D405B" d="M 1541 129 C 1751.5 129 1751.5 138 1962 138 L 1962 138 L 1962 0 L 1541 0 Z" stroke-width="0"></path></svg>
+        <svg viewBox="0 0 1962 178" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+            <path fill="#3D405B" d="M 0 114 C 118.5 114 118.5 167 237 167 L 237 167 L 237 0 L 0 0 Z"
+                  stroke-width="0"></path>
+            <path fill="#3D405B" d="M 236 167 C 373 167 373 128 510 128 L 510 128 L 510 0 L 236 0 Z"
+                  stroke-width="0"></path>
+            <path fill="#3D405B" d="M 509 128 C 607 128 607 153 705 153 L 705 153 L 705 0 L 509 0 Z"
+                  stroke-width="0"></path>
+            <path fill="#3D405B" d="M 704 153 C 812 153 812 113 920 113 L 920 113 L 920 0 L 704 0 Z"
+                  stroke-width="0"></path>
+            <path fill="#3D405B" d="M 919 113 C 1048.5 113 1048.5 148 1178 148 L 1178 148 L 1178 0 L 919 0 Z"
+                  stroke-width="0"></path>
+            <path fill="#3D405B" d="M 1177 148 C 1359.5 148 1359.5 129 1542 129 L 1542 129 L 1542 0 L 1177 0 Z"
+                  stroke-width="0"></path>
+            <path fill="#3D405B" d="M 1541 129 C 1751.5 129 1751.5 138 1962 138 L 1962 138 L 1962 0 L 1541 0 Z"
+                  stroke-width="0"></path>
+        </svg>
 
 
-
-        <svg viewBox="0 0 1962 178" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path fill="#ffffff" d="M 0 114 C 118.5 114 118.5 167 237 167 L 237 167 L 237 0 L 0 0 Z" stroke-width="0"></path> <path fill="#ffffff" d="M 236 167 C 373 167 373 128 510 128 L 510 128 L 510 0 L 236 0 Z" stroke-width="0"></path> <path fill="#ffffff" d="M 509 128 C 607 128 607 153 705 153 L 705 153 L 705 0 L 509 0 Z" stroke-width="0"></path><path fill="#ffffff" d="M 704 153 C 812 153 812 113 920 113 L 920 113 L 920 0 L 704 0 Z" stroke-width="0"></path><path fill="#ffffff" d="M 919 113 C 1048.5 113 1048.5 148 1178 148 L 1178 148 L 1178 0 L 919 0 Z" stroke-width="0"></path><path fill="#ffffff" d="M 1177 148 C 1359.5 148 1359.5 129 1542 129 L 1542 129 L 1542 0 L 1177 0 Z" stroke-width="0"></path><path fill="#ffffff" d="M 1541 129 C 1751.5 129 1751.5 138 1962 138 L 1962 138 L 1962 0 L 1541 0 Z" stroke-width="0"></path></svg>
+        <svg viewBox="0 0 1962 178" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+            <path fill="#ffffff" d="M 0 114 C 118.5 114 118.5 167 237 167 L 237 167 L 237 0 L 0 0 Z"
+                  stroke-width="0"></path>
+            <path fill="#ffffff" d="M 236 167 C 373 167 373 128 510 128 L 510 128 L 510 0 L 236 0 Z"
+                  stroke-width="0"></path>
+            <path fill="#ffffff" d="M 509 128 C 607 128 607 153 705 153 L 705 153 L 705 0 L 509 0 Z"
+                  stroke-width="0"></path>
+            <path fill="#ffffff" d="M 704 153 C 812 153 812 113 920 113 L 920 113 L 920 0 L 704 0 Z"
+                  stroke-width="0"></path>
+            <path fill="#ffffff" d="M 919 113 C 1048.5 113 1048.5 148 1178 148 L 1178 148 L 1178 0 L 919 0 Z"
+                  stroke-width="0"></path>
+            <path fill="#ffffff" d="M 1177 148 C 1359.5 148 1359.5 129 1542 129 L 1542 129 L 1542 0 L 1177 0 Z"
+                  stroke-width="0"></path>
+            <path fill="#ffffff" d="M 1541 129 C 1751.5 129 1751.5 138 1962 138 L 1962 138 L 1962 0 L 1541 0 Z"
+                  stroke-width="0"></path>
+        </svg>
     </section>
 
 
@@ -193,10 +220,15 @@
                         <div class="custom-block-info">
                             <h3 class="mb-3">&nbsp;</h3>
                             <style>
-                                p{width:400px; text-indent:2em}
+                                p {
+                                    width: 400px;
+                                    text-indent: 2em
+                                }
                             </style>
-                            <p> <%= sectiona  %></p><br>
-                            <p> <%= adirection  %></p><br>
+                            <p><%= sectiona  %>
+                            </p><br>
+                            <p><%= adirection  %>
+                            </p><br>
                             <% for (int i1 = 0; i1 < 8; i1++) { %>
                             <% for (int j1 = 0; j1 < 5; j1++) { %>
                             <%= myarry[i1][j1] %><br>
@@ -205,8 +237,10 @@
                             <% } %>
 
 
-                            <p> <%= sectionb  %></p><br>
-                            <p> <%= bdirection  %></p><br>
+                            <p><%= sectionb  %>
+                            </p><br>
+                            <p><%= bdirection  %>
+                            </p><br>
                             <% for (int i1 = 8; i1 < 15; i1++) { %>
                             <% for (int j1 = 0; j1 < 5; j1++) { %>
                             <%= myarry[i1][j1] %><br>
@@ -215,8 +249,10 @@
                             <% } %>
 
 
-                            <p> <%= sectionc  %></p><br>
-                            <p> <%= cdirection  %></p><br>
+                            <p><%= sectionc  %>
+                            </p><br>
+                            <p><%= cdirection  %>
+                            </p><br>
                             <% for (int i1 = 16; i1 < 22; i1++) { %>
                             <% for (int j1 = 0; j1 < 5; j1++) { %>
                             <%= myarry[i1][j1] %><br>
@@ -225,7 +261,8 @@
                             <% } %>
 
 
-                            <p> <%= addinfo  %></p><br>
+                            <p><%= addinfo  %>
+                            </p><br>
                             <% for (int i1 = 22; i1 < myarry.length; i1++) { %>
                             <% for (int j1 = 0; j1 < 5; j1++) { %>
                             <%= myarry[i1][j1] %><br>
@@ -239,7 +276,6 @@
                 </div>
 
 
-
             </div>
 
 
@@ -249,7 +285,7 @@
 
                 <script>
                     var countdownElement = document.getElementById('countdown');
-                    var totalTime = 30*60; // ����Сʱ��������
+                    var totalTime = 30 * 60; // ����Сʱ��������
 
                     function updateCountdown() {
                         var hours = Math.floor(totalTime / 3600);
@@ -292,7 +328,9 @@
                             </script>
 
 
-                            <form method="POST" action="${pageContext.request.contextPath}/servlet/SaveListeningAnswerServlet" name="form1" οnsubmit="return on_submit()">
+                            <form method="POST"
+                                  action="${pageContext.request.contextPath}/servlet/SaveListeningAnswerServlet"
+                                  name="form1" οnsubmit="return on_submit()">
 
                                 <p>
                                     1.<label>
@@ -368,7 +406,6 @@
                                         <input type="radio" name="RadioGroup5" value="4" id="RadioGroup5_3">
                                         D</label>
                                 </p>
-
 
 
                                 <p>
@@ -447,11 +484,6 @@
                                 </p>
 
 
-
-
-
-
-
                                 <p>
                                     11.<label>
                                     <input type="radio" name="RadioGroup11" value="1" id="RadioGroup11_0">
@@ -526,10 +558,6 @@
                                         <input type="radio" name="RadioGroup15" value="4" id="RadioGroup15_3">
                                         D</label>
                                 </p>
-
-
-
-
 
 
                                 <p>
@@ -621,7 +649,7 @@
                                     <label>
                                         <input type="radio" name="RadioGroup21" value="4" id="RadioGroup21_3">
                                         D</label>
-                                </p >
+                                </p>
 
                                 <p>
                                     22.<label>
@@ -636,7 +664,7 @@
                                     <label>
                                         <input type="radio" name="RadioGroup22" value="4" id="RadioGroup22_3">
                                         D</label>
-                                </p >
+                                </p>
 
                                 <p>
                                     23.<label>
@@ -651,7 +679,7 @@
                                     <label>
                                         <input type="radio" name="RadioGroup23" value="4" id="RadioGroup23_3">
                                         D</label>
-                                </p >
+                                </p>
 
                                 <p>
                                     24.<label>
@@ -666,7 +694,7 @@
                                     <label>
                                         <input type="radio" name="RadioGroup24" value="4" id="RadioGroup24_3">
                                         D</label>
-                                </p >
+                                </p>
 
                                 <p>
                                     25.<label>
@@ -681,14 +709,12 @@
                                     <label>
                                         <input type="radio" name="RadioGroup25" value="4" id="RadioGroup25_3">
                                         D</label>
-                                </p >
+                                </p>
 
 
-                                <input type="submit" value="submit" name="B1"><input type="reset" value="reset" name="B2"><br>
+                                <input type="submit" value="submit" name="B1"><input type="reset" value="reset"
+                                                                                     name="B2"><br>
                             </form>
-
-
-
 
 
                         </div>
@@ -700,7 +726,10 @@
         </div>
     </section>
 </main>
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#81B29A" fill-opacity="1" d="M0,224L34.3,192C68.6,160,137,96,206,90.7C274.3,85,343,139,411,144C480,149,549,107,617,122.7C685.7,139,754,213,823,240C891.4,267,960,245,1029,224C1097.1,203,1166,181,1234,160C1302.9,139,1371,117,1406,106.7L1440,96L1440,320L1405.7,320C1371.4,320,1303,320,1234,320C1165.7,320,1097,320,1029,320C960,320,891,320,823,320C754.3,320,686,320,617,320C548.6,320,480,320,411,320C342.9,320,274,320,206,320C137.1,320,69,320,34,320L0,320Z"></path></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+    <path fill="#81B29A" fill-opacity="1"
+          d="M0,224L34.3,192C68.6,160,137,96,206,90.7C274.3,85,343,139,411,144C480,149,549,107,617,122.7C685.7,139,754,213,823,240C891.4,267,960,245,1029,224C1097.1,203,1166,181,1234,160C1302.9,139,1371,117,1406,106.7L1440,96L1440,320L1405.7,320C1371.4,320,1303,320,1234,320C1165.7,320,1097,320,1029,320C960,320,891,320,823,320C754.3,320,686,320,617,320C548.6,320,480,320,411,320C342.9,320,274,320,206,320C137.1,320,69,320,34,320L0,320Z"></path>
+</svg>
 </footer>
 
 

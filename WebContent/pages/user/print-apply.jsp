@@ -14,7 +14,7 @@
     <script src="https://cdn.bootcss.com/jquery/2.1.1/jquery.min.js"></script>
     <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/CAPTCHA.css">
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/assets/css/CAPTCHA.css">
     <script src="${pageContext.request.contextPath}/js/apply.js"></script>
 </head>
 

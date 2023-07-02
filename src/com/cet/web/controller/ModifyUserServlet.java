@@ -23,7 +23,7 @@ import com.cet.web.formbean.ModifyUserFormBean;
 /**
  * 管理员修改用户个人信息&密码。原则上管理员根本都不应该修改用户信息
  * 
- * @author K
+ * @author ggg
  */
 @WebServlet(name = "ModifyUserServlet", urlPatterns = "/servlet/modifyUserServlet")
 public class ModifyUserServlet extends HttpServlet {

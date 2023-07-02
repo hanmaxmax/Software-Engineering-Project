@@ -1,10 +1,8 @@
 package com.cet.dao.impl;
 
 import com.cet.dao.IStudentDao;
-import com.cet.domain.Order;
 import com.cet.domain.Registration;
 import com.cet.domain.Score;
-import com.cet.domain.User;
 import com.cet.util.ConnectionContext;
 import org.apache.commons.dbutils.*;
 import org.apache.commons.dbutils.handlers.BeanHandler;

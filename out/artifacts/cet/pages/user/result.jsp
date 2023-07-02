@@ -13,8 +13,8 @@
   <title>英语六级考试报考系统</title>
   <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
   <style type="text/css">
-    <jsp:directive.include file="/../css/templatemo-tiya-golf-club.css" />
-    <jsp:directive.include file="/../css/bootstrap-icons.css" />
+    <jsp:directive.include file="/assets/css/templatemo-tiya-golf-club.css" />
+    <jsp:directive.include file="/assets/css/bootstrap-icons.css" />
   </style>
   <jsp:useBean id="getScoreServlet" class="com.cet.web.controller.GetScoreServlet" />
 
@@ -47,7 +47,7 @@
 </c:if>
 
 <!-- 网页头部 -->
-<jsp:include page="/../jspfragments/header.jsp" />
+<jsp:include page="/jspfragments/header.jsp" />
 
 
 <c:if test="${not empty requestScope.ScoreError}">

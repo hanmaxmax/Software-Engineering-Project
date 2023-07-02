@@ -7,16 +7,15 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <link href="//fonts.googleapis.com/css2?family=Jost:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="../assets/css/index.css" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/assets/css/style-starter.css"/>
-	<link href="css/index.css" rel="stylesheet">
 
     <title>英语六级考试报考系统</title>
 
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
     <style type="text/css">
-        <jsp:directive.include file="/css/index.css" />
-
+        <jsp:directive.include file="/assets/css/index.css" />
         .services .service-item:hover .icon img {
             margin-top: 20px;
         }
@@ -264,13 +263,13 @@
 
 
 <!-- 页脚 -->
-<script src="js/jquery.min.js"></script>
-<script src="js/bootstrap.bundle.min.js"></script>
-<script src="js/jquery.sticky.js"></script>
-<script src="js/click-scroll.js"></script>
-<script src="js/animated-headline.js"></script>
-<script src="js/modernizr.js"></script>
-<script src="js/custom.js"></script>
+<script src="../js/jquery.min.js"></script>
+<script src="../js/bootstrap.bundle.min.js"></script>
+<script src="../js/jquery.sticky.js"></script>
+<script src="../js/click-scroll.js"></script>
+<script src="../js/animated-headline.js"></script>
+<script src="../js/modernizr.js"></script>
+<script src="../js/custom.js"></script>
 
 </body>
 </html>

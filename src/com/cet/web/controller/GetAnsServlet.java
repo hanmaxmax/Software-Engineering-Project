@@ -1,8 +1,5 @@
 package com.cet.web.controller;
 
-import com.cet.domain.Item;
-import com.cet.service.IItemService;
-import com.cet.service.impl.ItemServiceImpl;
 import java.sql.*;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -15,7 +12,11 @@ import java.util.List;
 import java.util.ArrayList;
 
 
-
+/**
+ * 获取考试答案
+ * 20230627
+ * @author zjy
+ */
 @WebServlet(name = "GetAnsServlet", urlPatterns = "/servlet/getAnsServlet")
 public class GetAnsServlet extends HttpServlet {
 

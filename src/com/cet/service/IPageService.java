@@ -7,7 +7,7 @@ import com.cet.domain.Page;
 /**
  * 提供获取Page的方法，如果Service提供分页查看的功能，就要继承它
  * 
- * @author K
+ * @author ggg
  *
  * @param <T>
  */

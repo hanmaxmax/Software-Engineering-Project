@@ -21,7 +21,7 @@ import com.cet.util.WebUtils;
 /**
  * 用于获得用户的分页，每次切换页面都要访问
  * 
- * @author K
+ * @author ggg
  */
 @WebServlet(name = "GetUsersPageServlet", urlPatterns = "/servlet/getUsersPageServlet")
 public class GetUsersPageServlet extends HttpServlet {

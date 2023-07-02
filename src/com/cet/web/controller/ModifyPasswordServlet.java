@@ -24,7 +24,7 @@ import com.cet.web.formbean.ModifyPasswordFormBean;
 /**
  * 修改用户密码
  * 
- * @author K
+ * @author ggg
  */
 @WebServlet(name = "ModifyPasswordServlet", urlPatterns = "/servlet/modifyPasswordServlet")
 public class ModifyPasswordServlet extends HttpServlet {

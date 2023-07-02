@@ -14,7 +14,7 @@ function fail(obj, msg) {
 	obj.find('.tips').text(msg).show();
 }
 
-// 修改商品
+// 修改条目
 var checkModifyItemName = true;
 var checkModifyItemStock = true;
 var checkModifyItemPrice = true;
@@ -22,7 +22,7 @@ var checkModifyItemPrice = true;
 $(document).ready(function() {
 	$('#modify-item-name-div').find('#modify-item-name').change(function() {
 		if ($(this).val() == 0) {
-			fail($("#modify-item-name-div"), '餐点名不能为空');
+			fail($("#modify-item-name-div"), '名不能为空');
 			checkModifyItemName = false;
 		} else {
 			success($("#modify-item-name-div"));
@@ -57,7 +57,7 @@ $(document).ready(function() {
 	});
 });
 
-// 验证修改商品表单,决定是否提交
+// 验证修改条目表单,决定是否提交
 function checkModifyItem() {
 	if (checkModifyItemName == true) {
 		success($("#modify-item-name-div"));

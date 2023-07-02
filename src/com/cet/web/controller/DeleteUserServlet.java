@@ -14,8 +14,8 @@ import com.cet.service.impl.UserServiceImpl;
 
 /**
  * 移除一个User
- * 
- * @author K
+ * 20230515
+ * @author ggg
  */
 @WebServlet(name = "DeleteUserServlet", urlPatterns = "/servlet/deleteUserServlet")
 public class DeleteUserServlet extends HttpServlet {

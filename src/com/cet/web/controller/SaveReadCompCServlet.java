@@ -14,9 +14,11 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.sql.SQLException;
 
-//import javax.servlet.*;
-//import javax.servlet.annotation.WebServlet;
-//import javax.servlet.http.*;
+/**
+ * 答案比对
+ * 20230628
+ * @author zjy
+ */
 
 @WebServlet(name = "SaveReadCompCServlet", urlPatterns = "/servlet/SaveReadCompCServlet")
 public class SaveReadCompCServlet extends HttpServlet {
@@ -56,7 +58,7 @@ public class SaveReadCompCServlet extends HttpServlet {
         System.out.println("formBean: "+formBean.toString());
         saveFiveRadioAnswer(request, response, formBean, 46);
 
-        response.sendRedirect("/questions.jsp");
+        response.sendRedirect("/Exam/questions.jsp");
     }
 
     public String codeToString(String str)  // 处理中文字符串的函数

@@ -25,6 +25,12 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+/**
+ * 答案比对
+ * 20230628
+ * @author zjy
+ */
+
 @WebServlet(name = "SaveListeningAnswerServlet", urlPatterns = "/servlet/SaveListeningAnswerServlet")
 public class SaveListeningAnswerServlet extends HttpServlet {
     private ISaverFiveRadioService SaverService = new SaverFiveRadioServiceImpl();
@@ -118,7 +124,7 @@ public class SaveListeningAnswerServlet extends HttpServlet {
         System.out.println("formBean: "+formBean.toString());
         saveFiveRadioAnswer(request, response, formBean, 21);
         // 弹框提示保存成功？
-        response.sendRedirect("/questions.jsp");
+        response.sendRedirect("/Exam/questions.jsp");
     }
 
     public String codeToString(String str)  // 处理中文字符串的函数

@@ -441,7 +441,7 @@ function checkModifyPassword() {
 	}
 };
 
-// 添加商品
+// 添加条目
 var checkAddItemName = false;
 var checkAddItemStock = false;
 var checkAddItemPrice = false;
@@ -449,7 +449,7 @@ var checkAddItemPrice = false;
 $(document).ready(function() {
 	$('#add-item-name-div').find('#add-item-name').change(function() {
 		if ($(this).val() == 0) {
-			fail($("#add-item-name-div"), '餐点名不能为空');
+			fail($("#add-item-name-div"), '名不能为空');
 			checkAddItemName = false;
 		} else {
 			success($("#add-item-name-div"));
@@ -484,7 +484,7 @@ $(document).ready(function() {
 	});
 });
 
-// 验证添加商品表单,决定是否提交
+// 验证添加条目表单,决定是否提交
 function checkAddItem() {
 	if (checkAddItemName == true) {
 		success($("#add-item-name-div"));

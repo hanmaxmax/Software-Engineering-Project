@@ -20,7 +20,7 @@ import com.cet.web.formbean.RegisterFormBean;
 /**
  * 登录操作，保存session信息
  * 
- * @author K
+ * @author ggg
  */
 @WebServlet(name = "LoginServlet", urlPatterns = "/servlet/loginServlet")
 public class LoginServlet extends HttpServlet {

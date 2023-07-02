@@ -1,23 +1,11 @@
 
 package com.cet.service.impl;
 
-import com.cet.dao.IUserDao;
-import com.cet.dao.impl.UserDaoImpl;
-import com.cet.domain.Page;
-import com.cet.domain.User;
-import com.cet.exception.UserExistException;
-import com.cet.service.IAutoMarkingService;
-
 import java.sql.*;
-import java.util.ArrayList;
-import java.util.List;
-import com.google.gson.Gson;
-import com.google.gson.JsonObject;
 //import javax.json.Json;
 //import javax.json.JsonObject;
 //import javax.json.JsonReader;
-import java.io.FileReader;
-import java.io.IOException;
+
 /**
  * @InterfaceName: AutoMarkingServiceImpl
  * @Description:自动阅卷系统。

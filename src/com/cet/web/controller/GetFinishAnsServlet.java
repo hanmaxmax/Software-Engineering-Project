@@ -10,7 +10,11 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-
+/**
+ * 获取考试答案
+ * 20230627
+ * @author zjy
+ */
 @WebServlet(name = "GetFinishAnsServlet", urlPatterns = "/servlet/getFinishAnsServlet")
 public class GetFinishAnsServlet extends HttpServlet {
 

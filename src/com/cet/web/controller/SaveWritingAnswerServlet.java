@@ -25,6 +25,12 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+/**
+ * 答案比对
+ * 20230628
+ * @author zjy
+ */
+
 @WebServlet(name = "SaveWritingAnswerServlet", urlPatterns = "/servlet/SaveWritingAnswerServlet")
 public class SaveWritingAnswerServlet extends HttpServlet {
     private ISaverWritingService SaverService = new SaverWritingServiceImpl();
@@ -40,7 +46,7 @@ public class SaveWritingAnswerServlet extends HttpServlet {
         writingAnswerBean.setQuestion(request.getParameter("writing"));
         System.out.println("writingAnswerBean: "+writingAnswerBean.toString());
         saveWritingAnswer(request, response, writingAnswerBean);
-        response.sendRedirect("/questions.jsp");
+        response.sendRedirect("/Exam/questions.jsp");
     }
 
     public String codeToString(String str)  // 处理中文字符串的函数

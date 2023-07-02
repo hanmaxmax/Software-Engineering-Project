@@ -1,6 +1,12 @@
 
 package com.cet.service;
-
+/**
+ * 提供获取答题卡交卷的方法
+ *
+ * @author wzr
+ *
+ * @param <T>
+ */
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
